@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#080810">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>FC A04 – Sân 4 Biển Là Nhà · Mùa 2025/26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;600;700&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#FFD700;--gold2:#FFA500;--cyan:#00FFFF;--elite:#00e5ff;
+  --dark:#080810;--dark2:#10101c;--dark3:#181826;--card-bg:#12121e;
+  --text:#e8e8f0;--text-dim:#7878a0;
+  --win:#00e676;--loss:#ff1744;--draw:#ffeb3b;
+  --trash:#55556a;--field:#2a7a2a;--field2:#329632;
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Rajdhani',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 20%,#0a1f4022 0%,transparent 70%),
+    radial-gradient(ellipse 50% 60% at 90% 80%,#1a0a2822 0%,transparent 70%);
+}
+
+/* ===== HEADER ===== */
+header{
+  position:relative;z-index:10;
+  background:linear-gradient(135deg,#08080f 0%,#10101e 60%,#08080f 100%);
+  border-bottom:2px solid var(--gold);
+  box-shadow:0 4px 40px rgba(255,215,0,0.18);
+}
+.hdr{
+  max-width:1100px;margin:0 auto;padding:1rem 1.5rem;
+  display:flex;flex-direction:column;gap:.5rem;
+}
+.hdr-top{
+  display:flex;align-items:center;gap:1rem;
+}
+.logo-ring{
+  width:76px;height:76px;border-radius:50%;flex-shrink:0;
+  padding:3px;
+  background:conic-gradient(
+    #FFD700 0deg, #FFA500 60deg, #fff 120deg,
+    #FFD700 180deg, #FFA500 240deg, #fff 300deg, #FFD700 360deg
+  );
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 20px rgba(255,215,0,0.6), 0 0 40px rgba(255,165,0,0.3);
+  animation:spin-ring 6s linear infinite;
+  position:relative;
+  will-change:transform;
+  transform:translateZ(0);
+}
+.logo-ring::after{
+  content:'A04';position:absolute;inset:4px;border-radius:50%;
+  background:var(--dark2);
+  font-family:'Orbitron',monospace;font-size:1.05rem;font-weight:900;color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+}
+@keyframes spin-ring{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+@media(prefers-reduced-motion:reduce){
+  .logo-ring{animation:none;}
+}
+.brand h1{
+  font-family:'Orbitron',monospace;font-weight:900;
+  font-size:clamp(1.5rem,5vw,2.4rem);
+  color:var(--gold);
+  letter-spacing:.12em;
+  display:block;
+}
+@media(max-width:768px){
+  .brand h1{animation:none;}
+}
+.brand .sub{font-size:.8rem;color:var(--gold2);font-style:italic;letter-spacing:.05em;margin-top:2px;}
+.brand .sub2{font-size:.72rem;color:var(--text-dim);margin-top:1px;}
+.hdr-pills{display:flex;gap:.5rem;flex-wrap:wrap;}
+.pill{
+  background:rgba(255,215,0,.07);border:1px solid rgba(255,215,0,.25);
+  border-radius:20px;padding:.28rem .8rem;text-align:center;
+  font-size:.72rem;color:var(--text-dim);
+}
+.pill b{display:block;font-family:'Orbitron',monospace;font-size:.95rem;color:var(--gold);font-weight:700;}
+
+/* SEASON BADGE */
+.season-badge{
+  position:relative;z-index:10;
+  background:linear-gradient(90deg,rgba(255,215,0,.12),rgba(255,215,0,.05));
+  border-bottom:1px solid rgba(255,215,0,.18);
+  text-align:center;padding:.4rem 1rem;
+  font-family:'Orbitron',monospace;font-size:.75rem;color:var(--gold);
+  letter-spacing:.2em;
+}
+.season-badge span{color:rgba(255,255,255,.4);margin:0 .8rem;}
+
+/* ===== TABS ===== */
+.tabs-bar{background:var(--dark2);border-bottom:1px solid rgba(255,255,255,.07);position:sticky;top:0;z-index:20;}
+.tabs-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;}
+.tab-btn{
+  background:none;border:none;cursor:pointer;
+  color:var(--text-dim);font-family:'Barlow Condensed',sans-serif;
+  font-size:.95rem;font-weight:700;padding:.85rem 1.3rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  border-bottom:3px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;
+  min-height:44px;display:flex;align-items:center;
+}
+.tab-btn:hover{color:var(--text);}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+/* ===== MAIN ===== */
+.main{max-width:1100px;margin:0 auto;padding:2rem 1rem;position:relative;z-index:5;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;animation:fadeUp .3s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.sec-title{
+  font-family:'Orbitron',monospace;font-size:1.1rem;font-weight:700;color:var(--gold);
+  margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;
+}
+.sec-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,215,0,.4),transparent);}
+
+/* ===== FIELD ===== */
+.field-layout{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+@media(max-width:700px){.field-layout{grid-template-columns:1fr;}}
+.field-wrap{perspective:900px;}
+.field{
+  border-radius:10px;border:3px solid rgba(255,255,255,.65);
+  position:relative;overflow:hidden;
+  min-height:480px;padding:1.2rem 2rem;
+  box-shadow:0 20px 60px rgba(0,0,0,.7),inset 0 0 60px rgba(0,0,0,.15);
+  background:repeating-linear-gradient(180deg,var(--field) 0px,var(--field) 36px,var(--field2) 36px,var(--field2) 72px);
+}
+.f-line{position:absolute;background:rgba(255,255,255,.45);}
+.f-mid-h{top:50%;left:5%;right:5%;height:2px;transform:translateY(-50%);}
+.f-circle{
+  position:absolute;top:50%;left:50%;
+  width:90px;height:90px;border:2px solid rgba(255,255,255,.45);border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+.f-dot{
+  position:absolute;top:50%;left:50%;
+  width:8px;height:8px;background:rgba(255,255,255,.7);border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+.f-box-t,.f-box-b{
+  position:absolute;left:50%;
+  width:48%;height:65px;border:2px solid rgba(255,255,255,.38);
+  transform:translateX(-50%);
+}
+.f-box-t{top:0;border-top:none;}
+.f-box-b{bottom:0;border-bottom:none;}
+.formation{display:flex;flex-direction:column;height:100%;min-height:440px;justify-content:space-between;gap:.4rem;}
+.f-row{display:flex;justify-content:center;gap:.5rem;align-items:center;}
+.f-row-label{text-align:center;font-size:.52rem;letter-spacing:.18em;color:rgba(255,255,255,.28);text-transform:uppercase;margin-bottom:1px;}
+
+/* Player token */
+.ptoken{
+  display:flex;flex-direction:column;align-items:center;
+  cursor:pointer;transition:transform .2s;position:relative;
+  user-select:none;z-index:2;
+}
+.ptoken:hover{transform:scale(1.18);}
+.ptoken.dragging{opacity:.45;transform:scale(1.2);z-index:100;}
+.pavatar{
+  width:52px;height:52px;border-radius:50%;border:2.5px solid rgba(255,255,255,.7);
+  overflow:hidden;background:var(--dark3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  box-shadow:0 4px 14px rgba(0,0,0,.55);
+  position:relative;flex-shrink:0;
+}
+.pavatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.pavatar.r-elite{border-color:var(--elite);box-shadow:0 0 14px rgba(0,229,255,.65);}
+.pavatar.r-gold{border-color:var(--gold);box-shadow:0 0 14px rgba(255,215,0,.6);}
+.pavatar.r-trash{border-color:var(--trash);filter:brightness(.7);}
+.pavatar.r-special{
+  border-color:#ff88ff;
+  box-shadow:0 0 14px rgba(255,100,255,.6);
+  animation:rainbow-border 3s linear infinite;
+}
+@keyframes rainbow-border{
+  0%{border-color:#ff88ff;box-shadow:0 0 14px rgba(255,100,255,.6);}
+  33%{border-color:#ff4444;box-shadow:0 0 14px rgba(255,60,60,.6);}
+  66%{border-color:#ffaa00;box-shadow:0 0 14px rgba(255,170,0,.6);}
+  100%{border-color:#ff88ff;box-shadow:0 0 14px rgba(255,100,255,.6);}
+}
+.pos-chip{
+  position:absolute;top:-5px;right:-5px;
+  background:var(--dark);color:var(--gold);
+  font-size:.48rem;font-weight:700;border-radius:3px;
+  padding:1px 3px;border:1px solid var(--gold);
+  font-family:'Orbitron',monospace;
+}
+.pname-field{
+  font-size:.6rem;font-weight:700;color:#fff;
+  text-shadow:0 1px 4px #000,0 0 6px #000;
+  margin-top:3px;text-align:center;max-width:58px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  background:rgba(0,0,0,.5);border-radius:3px;padding:1px 4px;
+}
+
+/* Sideline coach */
+.sideline{
+  display:flex;align-items:center;gap:.6rem;
+  margin-top:.9rem;padding:.7rem 1rem;
+  background:rgba(0,0,0,.35);border-radius:8px;
+  border:1px dashed rgba(255,136,255,.4);
+}
+.sideline-icon{font-size:2rem;}
+.sideline-info{font-size:.8rem;}
+.sideline-info b{color:#ff88ff;display:block;font-size:.95rem;}
+.sideline-info span{color:var(--text-dim);font-style:italic;}
+
+/* Info panel */
+.info-panel h3{font-family:'Orbitron',monospace;color:var(--gold);font-size:.95rem;margin-bottom:1rem;}
+.ftag{
+  display:inline-block;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);
+  color:var(--gold);border-radius:6px;padding:.28rem .8rem;
+  font-size:.8rem;font-weight:700;margin-bottom:.8rem;letter-spacing:.1em;
+}
+.season-tag{
+  display:inline-block;margin-left:.5rem;
+  background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.3);
+  color:var(--elite);border-radius:6px;padding:.28rem .8rem;
+  font-size:.8rem;font-weight:700;margin-bottom:.8rem;letter-spacing:.08em;
+  font-family:'Orbitron',monospace;
+}
+.ipill{
+  background:var(--dark3);border:1px solid rgba(255,255,255,.07);
+  border-radius:8px;padding:.55rem 1rem;margin-bottom:.45rem;
+  display:flex;justify-content:space-between;font-size:.82rem;flex-wrap:wrap;gap:.3rem;
+}
+.ipill strong{color:var(--gold2);}
+.chem-wrap{margin-top:.8rem;}
+.chem-wrap label{font-size:.75rem;color:var(--text-dim);display:block;margin-bottom:.3rem;}
+.chem-track{height:7px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden;}
+.chem-fill{height:100%;width:0%;background:linear-gradient(90deg,#ff4444 0%,#ff9900 50%,var(--win) 100%);border-radius:4px;transition:width 1.3s cubic-bezier(.25,1,.5,1) .4s;}
+.chem-note{font-size:.7rem;color:var(--text-dim);margin-top:3px;font-style:italic;}
+.drag-hint{margin-top:.9rem;font-size:.75rem;color:var(--text-dim);font-style:italic;}
+
+/* ===== SQUAD ===== */
+.squad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:1rem;}
+.scard{
+  background:var(--dark3);border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;padding:1rem;text-align:center;
+  cursor:pointer;transition:transform .15s,border-color .15s;touch-action:manipulation;
+}
+.scard:hover{transform:translateY(-2px);}
+.scard.r-elite:hover{border-color:var(--elite);}
+.scard.r-gold:hover{border-color:var(--gold);}
+@media(max-width:768px){
+  .scard:hover{transform:none;}
+  .scard.r-elite:hover,.scard.r-gold:hover{box-shadow:none;}
+}
+.scard-avatar{
+  width:68px;height:68px;border-radius:50%;margin:0 auto .5rem;
+  overflow:hidden;border:2.5px solid rgba(255,255,255,.15);
+  background:var(--dark2);display:flex;align-items:center;justify-content:center;font-size:1.8rem;
+}
+.scard-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.r-elite .scard-avatar{border-color:var(--elite);}
+.r-gold .scard-avatar{border-color:var(--gold);}
+.r-trash .scard-avatar{border-color:var(--trash);filter:saturate(.5);}
+.r-special .scard-avatar{border-color:#ff88ff;}
+.srating{font-family:'Orbitron',monospace;font-size:1.35rem;font-weight:900;}
+.r-elite .srating{color:var(--elite);}
+.r-gold .srating{color:var(--gold);}
+.r-trash .srating{color:var(--trash);}
+.r-special .srating{color:#ff88ff;}
+.spos{font-size:.68rem;color:var(--text-dim);letter-spacing:.1em;margin-bottom:.2rem;}
+.sname{font-weight:700;font-size:.9rem;margin-bottom:.2rem;}
+.snick{font-size:.72rem;color:var(--text-dim);font-style:italic;margin-bottom:.5rem;}
+.ssize{
+  display:inline-block;background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.2);
+  color:var(--gold2);border-radius:4px;font-size:.65rem;font-weight:700;padding:1px 6px;
+}
+.mini-stats{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap;margin-top:.5rem;}
+.mstat{font-size:.62rem;color:var(--text-dim);}
+.mstat span{color:var(--text);font-weight:700;}
+
+/* Coach banner */
+.coach-banner{
+  background:linear-gradient(135deg,#1a0a2a,#2a1040);
+  border:2px solid #ff88ff;border-radius:14px;
+  padding:1.2rem 1.5rem;margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;
+  box-shadow:0 0 20px rgba(255,100,255,.1);
+  will-change:box-shadow;
+}
+@media(prefers-reduced-motion:no-preference){
+  .coach-banner{animation:coach-glow 4s ease-in-out infinite;}
+  @keyframes coach-glow{
+    0%,100%{box-shadow:0 0 15px rgba(255,100,255,.1);}
+    50%{box-shadow:0 0 30px rgba(255,100,255,.3);}
+  }
+}
+@media(max-width:768px){
+  .coach-banner{box-shadow:none;}
+}
+.coach-badge{
+  font-size:3.5rem;background:rgba(255,100,255,.1);
+  border-radius:50%;width:80px;height:80px;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid rgba(255,100,255,.4);flex-shrink:0;
+}
+.coach-info h2{font-family:'Orbitron',monospace;font-size:1.1rem;color:#ff88ff;margin-bottom:.4rem;}
+.coach-info .roles{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.5rem;}
+.role-tag{
+  background:rgba(255,100,255,.12);border:1px solid rgba(255,100,255,.3);
+  color:#ffaaff;border-radius:12px;font-size:.68rem;font-weight:700;
+  padding:.2rem .6rem;letter-spacing:.05em;
+}
+.coach-info p{font-size:.8rem;color:var(--text-dim);font-style:italic;}
+
+/* ===== OVERLAY + CARD ===== */
+.overlay{
+  position:fixed;inset:0;z-index:100;display:none;
+  align-items:center;justify-content:center;
+  transition:background .3s,backdrop-filter .3s;
+}
+.overlay.visible{
+  display:flex;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(10px);
+}
+.fco-card{
+  position:relative;width:285px;background:var(--card-bg);border-radius:18px;
+  overflow:hidden;transform:scale(.95);opacity:0;
+  transition:transform .3s ease-out,opacity .2s;
+  box-shadow:0 10px 40px rgba(0,0,0,.6);cursor:default;
+}
+.fco-card.show{transform:scale(1);opacity:1;}
+.fco-card.r-elite{border:2px solid var(--elite);box-shadow:0 0 20px rgba(0,229,255,.25),0 10px 40px rgba(0,0,0,.6);}
+.fco-card.r-gold{border:2px solid var(--gold);box-shadow:0 0 20px rgba(255,215,0,.2),0 10px 40px rgba(0,0,0,.6);}
+.fco-card.r-trash{border:2px solid var(--trash);box-shadow:0 10px 40px rgba(0,0,0,.6);}
+.fco-card.r-special{border:2px solid #ff88ff;box-shadow:0 0 25px rgba(255,100,255,.3),0 10px 40px rgba(0,0,0,.6);}
+@media(max-width:600px){
+  .fco-card{width:min(90vw,330px);}
+  .fco-card.r-elite,.fco-card.r-gold,.fco-card.r-special{box-shadow:0 8px 20px rgba(0,0,0,.5);}
+}
+.card-hdr{padding:.9rem 1.2rem .4rem;display:flex;align-items:center;gap:.8rem;position:relative;}
+.card-rating{font-family:'Orbitron',monospace;font-size:2.8rem;font-weight:900;line-height:1;}
+.r-elite .card-rating{color:var(--elite);}
+.r-gold .card-rating{color:var(--gold);}
+.r-trash .card-rating{color:var(--trash);}
+.r-special .card-rating{color:#ff88ff;}
+.card-pos-info{display:flex;flex-direction:column;gap:.15rem;}
+.card-pos{font-family:'Orbitron',monospace;font-size:.85rem;font-weight:700;letter-spacing:.1em;}
+.r-elite .card-pos{color:var(--elite);}
+.r-gold .card-pos{color:var(--gold);}
+.r-trash .card-pos{color:var(--trash);}
+.r-special .card-pos{color:#ff88ff;}
+.card-shirt-num{
+  font-family:'Orbitron',monospace;font-size:.65rem;color:var(--text-dim);
+  background:rgba(255,255,255,.08);border-radius:4px;padding:2px 5px;width:fit-content;
+}
+.card-season-lbl{
+  font-size:.55rem;color:var(--elite);
+  font-family:'Orbitron',monospace;letter-spacing:.06em;
+}
+.card-rarity-lbl{
+  position:absolute;top:.7rem;right:1rem;
+  font-size:.6rem;font-weight:700;letter-spacing:.15em;padding:2px 6px;border-radius:4px;
+}
+.r-elite .card-rarity-lbl{background:rgba(0,229,255,.15);color:var(--elite);}
+.r-gold .card-rarity-lbl{background:rgba(255,215,0,.12);color:var(--gold);}
+.r-trash .card-rarity-lbl{background:rgba(100,100,120,.15);color:var(--trash);}
+.r-special .card-rarity-lbl{background:rgba(255,100,255,.15);color:#ff88ff;}
+.card-img-wrap{height:175px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;background:rgba(0,0,0,.3);}
+.card-img-wrap img{height:100%;width:100%;object-fit:cover;}
+.card-ph{font-size:5.5rem;opacity:.8;}
+.card-img-glow{position:absolute;bottom:0;left:0;right:0;height:55px;pointer-events:none;}
+.r-elite .card-img-glow{background:linear-gradient(to top,#0b1e30,transparent);}
+.r-gold .card-img-glow{background:linear-gradient(to top,#1e1200,transparent);}
+.r-trash .card-img-glow{background:linear-gradient(to top,#0e0e18,transparent);}
+.r-special .card-img-glow{background:linear-gradient(to top,#180a28,transparent);}
+.card-name-area{padding:.45rem 1.2rem;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);}
+.card-pname{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;}
+.card-nick{font-size:.72rem;color:var(--text-dim);font-style:italic;margin-top:1px;}
+.card-meta{font-size:.65rem;color:var(--text-dim);margin-top:3px;display:flex;gap:.6rem;flex-wrap:wrap;}
+.card-meta span{background:rgba(255,255,255,.06);border-radius:3px;padding:1px 5px;}
+.card-stats{padding:.7rem 1.2rem .9rem;}
+.stat-row{display:flex;align-items:center;gap:.45rem;margin-bottom:.45rem;}
+.stat-lbl{font-size:.6rem;font-weight:700;letter-spacing:.08em;color:var(--text-dim);width:58px;flex-shrink:0;text-transform:uppercase;}
+.stat-bg{flex:1;height:5px;background:rgba(255,255,255,.09);border-radius:3px;overflow:hidden;}
+.stat-fill{height:100%;width:0%;border-radius:3px;transition:width .85s cubic-bezier(.25,1,.5,1);}
+.r-elite .stat-fill{background:linear-gradient(90deg,var(--elite),#00fff7);}
+.r-gold .stat-fill{background:linear-gradient(90deg,var(--gold2),var(--gold));}
+.r-trash .stat-fill{background:linear-gradient(90deg,#444,#777);}
+.r-special .stat-fill{background:linear-gradient(90deg,#cc44cc,#ff88ff);}
+.stat-val{font-family:'Orbitron',monospace;font-size:.65rem;font-weight:700;width:20px;text-align:right;color:var(--text);}
+.card-close{
+  position:absolute;top:.55rem;right:.55rem;
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);
+  color:var(--text);border-radius:50%;width:26px;height:26px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:.9rem;transition:background .2s;z-index:10;
+}
+.card-close:hover{background:rgba(255,255,255,.22);}
+
+/* ===== RESULTS ===== */
+.season-header{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;
+  margin-bottom:1.2rem;
+  background:var(--dark3);border-radius:10px;padding:.8rem 1.2rem;
+  border:1px solid rgba(255,215,0,.15);
+}
+.season-header .sh-label{font-family:'Orbitron',monospace;font-size:.75rem;color:var(--gold);letter-spacing:.15em;}
+.season-header .sh-val{font-size:.85rem;color:var(--text-dim);}
+.results-list{display:flex;flex-direction:column;gap:.7rem;}
+.result-item{
+  background:var(--dark3);border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;padding:.85rem 1.1rem;
+  display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;
+  transition:transform .2s;
+}
+.result-item:hover{transform:translateX(5px);}
+.rdate{font-size:.72rem;color:var(--text-dim);min-width:78px;}
+.rteams{flex:1;font-weight:700;font-size:.9rem;min-width:120px;}
+.rscore{font-family:'Orbitron',monospace;font-size:1.3rem;font-weight:900;min-width:72px;text-align:center;}
+.rbadge{padding:.18rem .65rem;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;min-width:48px;text-align:center;}
+.b-win{background:rgba(0,230,118,.12);color:var(--win);border:1px solid rgba(0,230,118,.28);}
+.b-loss{background:rgba(255,23,68,.09);color:var(--loss);border:1px solid rgba(255,23,68,.2);}
+.b-draw{background:rgba(255,235,59,.09);color:var(--draw);border:1px solid rgba(255,235,59,.2);}
+.rnote{font-size:.72rem;color:var(--text-dim);font-style:italic;width:100%;}
+.stats-row{display:flex;gap:.6rem;margin-top:1.2rem;flex-wrap:wrap;}
+.stats-row .pill{flex:1;min-width:70px;}
+
+/* ===== SHIRT ===== */
+.shirt-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.8rem;}
+.shirt-card{
+  background:var(--dark3);border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;padding:.8rem;text-align:center;
+  cursor:pointer;transition:transform .2s,border-color .2s;
+}
+.shirt-card:hover{transform:translateY(-4px);border-color:rgba(255,215,0,.3);}
+.shirt-num{font-family:'Orbitron',monospace;font-size:2.2rem;font-weight:900;color:var(--gold);}
+.shirt-real-name{font-size:.75rem;font-weight:700;margin-top:.1rem;}
+.shirt-alias{font-size:.7rem;color:var(--text-dim);font-style:italic;}
+.shirt-size{
+  display:inline-block;margin-top:.4rem;
+  background:rgba(255,255,255,.07);border-radius:4px;
+  padding:2px 7px;font-size:.68rem;font-weight:700;
+  color:var(--gold2);border:1px solid rgba(255,215,0,.2);
+}
+.shirt-pos-badge{
+  display:inline-block;margin-left:.3rem;
+  background:rgba(0,229,255,.08);border-radius:4px;
+  padding:2px 6px;font-size:.62rem;font-weight:700;
+  color:var(--elite);border:1px solid rgba(0,229,255,.2);
+}
+
+/* ===== FUN ===== */
+.fun-sec{margin-bottom:2rem;}
+.fun-sec h2{font-family:'Orbitron',monospace;font-size:1rem;color:var(--gold);margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px solid rgba(255,215,0,.18);display:flex;align-items:center;gap:.5rem;}
+.awards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.9rem;}
+.award-c{background:var(--dark3);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.9rem;text-align:center;transition:transform .2s;}
+.award-c:hover{transform:scale(1.04);}
+.award-icon{font-size:2.2rem;margin-bottom:.4rem;}
+.award-title{font-weight:700;color:var(--gold2);font-size:.85rem;margin-bottom:.25rem;}
+.award-winner{font-size:1rem;font-weight:700;margin-bottom:.25rem;}
+.award-reason{font-size:.75rem;color:var(--text-dim);font-style:italic;}
+.rules-list{list-style:none;}
+.rules-list li{background:var(--dark3);border-left:3px solid var(--gold);padding:.65rem 1rem;margin-bottom:.45rem;border-radius:0 8px 8px 0;font-size:.87rem;}
+.rules-list li::before{content:'⚡ ';}
+.quotes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.9rem;}
+.quote-c{background:var(--dark3);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:.9rem 1.1rem;position:relative;font-style:italic;font-size:.87rem;line-height:1.55;}
+.quote-c::before{content:'"';font-size:3.5rem;color:var(--gold);opacity:.12;position:absolute;top:-.4rem;left:.5rem;font-family:Georgia,serif;line-height:1;}
+.quote-c .qa{margin-top:.5rem;font-style:normal;font-weight:700;font-size:.75rem;color:var(--gold2);}
+
+/* =====================================================
+   ảnh thật – CSS căn chỉnh cho TẤT CẢ vị trí
+   ===================================================== */
+
+/* --- LOGO FC (header) --- */
+.logo-ring img.fc-logo{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  max-width:76px;max-height:76px;
+  border-radius:50%;
+  object-fit:cover;object-position:center;
+  z-index:2;
+}
+.logo-ring:has(img.fc-logo)::after{display:none;}
+
+/* --- AVATAR TRÊN SÂN (field token) --- */
+.pavatar{
+  width:52px;height:52px;border-radius:50%;
+  overflow:hidden;flex-shrink:0;
+}
+.pavatar img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  border-radius:50%;
+  display:block;
+}
+
+/* --- SQUAD CARD (tab Cầu Thủ) --- */
+.scard-avatar{
+  width:68px;height:68px;border-radius:50%;
+  overflow:hidden;flex-shrink:0;
+}
+.scard-avatar img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  border-radius:50%;
+  display:block;
+}
+
+/* --- CARD OVERLAY (popup chi tiết) --- */
+.card-img-wrap{
+  height:175px;position:relative;
+  overflow:hidden;background:rgba(0,0,0,.35);
+  display:flex;align-items:center;justify-content:center;
+}
+.card-img-wrap #c-img{
+  width:100%;height:100%;
+  background-size:var(--img-bg-size, cover);
+  background-position:var(--img-bg-pos, top center);
+  background-repeat:no-repeat;
+  display:block;
+}
+/* gradient overlay che chân ảnh – giữ depth */
+.card-img-glow{
+  position:absolute;bottom:0;left:0;right:0;
+  height:70px;pointer-events:none;z-index:2;
+}
+
+/* --- BENCH AVATAR (dự bị) --- */
+.bench-avatar{
+  width:42px;height:42px;border-radius:50%;
+  overflow:hidden;flex-shrink:0;
+  position:relative;
+}
+.bench-avatar img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  border-radius:50%;
+  display:block;
+}
+
+/* --- COACH BADGE (góc vui / sideline) --- */
+.coach-badge{
+  width:80px;height:80px;border-radius:50%;
+  overflow:hidden;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.coach-badge img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  border-radius:50%;
+  display:block;
+}
+/* nếu coach-badge dùng emoji thì giữ font-size */
+.coach-badge:not(:has(img)){font-size:3.5rem;}
+
+/* --- RESPONSIVE MOBILE --- */
+@media(max-width:600px){
+  .logo-ring img.fc-logo{inset:3px;width:calc(100% - 6px);height:calc(100% - 6px);}
+  .pavatar{width:36px;height:36px;}
+  .scard-avatar{width:54px;height:54px;}
+  .bench-avatar{width:36px;height:36px;}
+  .card-img-wrap{height:140px;}
+  .coach-badge{width:60px;height:60px;}
+}
+
+/* Drop */
+.drop-target{outline:2px dashed rgba(255,215,0,.5);border-radius:50%;}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:2rem;left:50%;
+  transform:translateX(-50%) translateY(110px);
+  background:var(--dark3);border:1px solid rgba(255,215,0,.3);
+  color:var(--text);padding:.65rem 1.4rem;
+  border-radius:30px;font-size:.82rem;
+  box-shadow:0 8px 30px rgba(0,0,0,.5);
+  z-index:200;transition:transform .3s;pointer-events:none;
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+
+/* Bench */
+.bench-area{margin-top:.7rem;padding:.65rem 1rem;background:rgba(0,0,0,.28);border-radius:8px;border:1px dashed rgba(255,215,0,.2);}
+.bench-label{font-size:.6rem;letter-spacing:.18em;color:rgba(255,215,0,.5);text-transform:uppercase;margin-bottom:.5rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;display:flex;align-items:center;gap:.5rem;}
+.bench-players{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;}
+.bench-token{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;transition:transform .2s;}
+.bench-token:hover{transform:scale(1.12);}
+.bench-avatar{width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px dashed rgba(255,215,0,.35);background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.4);filter:brightness(.65) saturate(.5);}
+.bench-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.bench-chip{position:absolute;top:-4px;right:-4px;background:#252530;color:var(--gold2);font-size:.42rem;font-weight:700;border-radius:3px;padding:1px 3px;border:1px solid rgba(255,165,0,.35);font-family:'Orbitron',monospace;}
+.bench-name{font-size:.54rem;color:rgba(255,255,255,.42);text-align:center;max-width:46px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:rgba(0,0,0,.35);border-radius:3px;padding:1px 3px;}
+.bench-sub-txt{font-size:.5rem;color:rgba(255,165,0,.6);font-weight:700;letter-spacing:.04em;}
+
+@media(max-width:600px){
+  /* Header */
+  .hdr{padding:.65rem .8rem;gap:.4rem;flex-wrap:wrap;}
+  .logo-ring{width:48px;height:48px;}
+  .logo-ring::after{font-size:.7rem;}
+  .brand h1{font-size:1.1rem;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .brand .sub{font-size:.58rem;}
+  .brand .sub2{display:none;}
+  .hdr-pills{gap:.25rem;flex-wrap:wrap;}
+  .pill{padding:.18rem .45rem;font-size:.65rem;}
+  .pill b{font-size:.72rem;}
+
+  /* Season badge */
+  .season-badge{font-size:.52rem;letter-spacing:.06em;padding:.25rem .4rem;}
+
+  /* Tabs – scrollable, no wrap */
+  .tabs-bar{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .tabs-inner{min-width:max-content;padding:0 .4rem;}
+  .tab-btn{font-size:.7rem;padding:.6rem .7rem;letter-spacing:.02em;white-space:nowrap;min-height:44px;}
+
+  /* Main padding */
+  .main{padding:.8rem .55rem;}
+  .sec-title{font-size:.8rem;margin-bottom:.8rem;}
+
+  /* Field layout: single column */
+  .field-layout{grid-template-columns:1fr;gap:.8rem;}
+  .field{padding:.5rem .45rem;min-height:300px;touch-action:none;border-width:2px;}
+  .f-circle{width:60px;height:60px;}
+  .pavatar{width:36px;height:36px;min-width:36px;min-height:36px;font-size:.9rem;flex-shrink:0;}
+  .pname-field{font-size:.42rem;max-width:40px;}
+  .pos-chip{font-size:.35rem;padding:1px 2px;}
+  .f-row{gap:.2rem;}
+
+  /* Bench */
+  .bench-area{padding:.4rem .55rem;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .bench-avatar{width:32px;height:32px;min-width:32px;min-height:32px;}
+  .bench-name{font-size:.42rem;max-width:34px;}
+
+  /* Info panel */
+  .ipill{font-size:.7rem;padding:.35rem .65rem;}
+  .drag-hint{display:none;}
+  .chem-wrap{margin-top:.6rem;}
+
+  /* Squad grid: 2 columns */
+  .squad-grid{grid-template-columns:repeat(2,1fr);gap:.55rem;}
+  .scard{padding:.6rem .45rem;cursor:pointer;}
+  .scard-avatar{width:48px;height:48px;}
+  .srating{font-size:.95rem;}
+  .sname{font-size:.75rem;}
+  .snick{font-size:.6rem;}
+
+  /* Shirt list */
+  .shirt-list{grid-template-columns:repeat(3,1fr);gap:.45rem;}
+  .shirt-num{font-size:1.4rem;}
+  .shirt-real-name{font-size:.62rem;}
+
+  /* Results */
+  .result-item{gap:.4rem;padding:.6rem .7rem;}
+  .rdate{font-size:.6rem;min-width:55px;}
+  .rteams{font-size:.78rem;min-width:85px;}
+  .rscore{font-size:1rem;min-width:50px;}
+  .rbadge{font-size:.58rem;padding:.12rem .4rem;}
+  .stats-row{gap:.35rem;flex-wrap:wrap;}
+  .stats-row .pill{min-width:50px;}
+
+  /* Overlay card: full width friendly */
+  .fco-card{width:94vw;max-width:330px;}
+  .card-rating{font-size:2rem;}
+  .card-img-wrap{height:145px;}
+
+  /* Fun section */
+  .awards-grid{grid-template-columns:repeat(2,1fr);gap:.6rem;}
+  .quotes-grid{grid-template-columns:1fr;gap:.6rem;}
+  .coach-banner{padding:.8rem .9rem;gap:.9rem;}
+  .coach-badge{width:56px;height:56px;font-size:2.4rem;}
+  .coach-info h2{font-size:.85rem;}
+
+  /* Touch targets – minimum 44px */
+  .tab-btn{min-height:44px;}
+  .ptoken{min-width:44px;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+
+  /* Overlay backdrop tap to close */
+  .overlay{padding:1rem .5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <div class="hdr-top">
+      <div class="logo-ring">
+        <img class="fc-logo" src="https://raw.githubusercontent.com/travis290910/FCA04/main/assets/FC.jpg" alt="Logo FC A04">
+      </div>
+      <div class="brand">
+        <h1>FC A04</h1>
+        <div class="sub">⚡ Sân 4 Biển Là Nhà – Thiên Hạ Là Sân Khách ⚡</div>
+        <div class="sub2">Lớp A04 – Khóa 55 · THPT Dương Xá · Sân 7 người</div>
+      </div>
+    </div>
+    <div class="hdr-pills">
+      <div class="pill"><b>10</b>Quân số</div>
+      <div class="pill"><b>2-3-1</b>Đội hình</div>
+      <div class="pill"><b>81</b>OVR TB</div>
+      <div class="pill"><b>2025/26</b>Mùa giải</div>
+    </div>
+  </div>
+</header>
+
+<!-- SEASON BANNER -->
+<div class="season-badge">
+  ⚽ MÙA GIẢI 2025 / 2026 <span>·</span> FC A04 <span>·</span> SÂN 4 BIỂN · SÂN 7 NGƯỜI <span>·</span> ĐỘI HÌNH 2–3–1 ⚽
+</div>
+
+<!-- TABS -->
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="switchTab('doi-hinh',this)">⚽ Đội Hình</button>
+    <button class="tab-btn" onclick="switchTab('cau-thu',this)">👤 Cầu Thủ</button>
+    <button class="tab-btn" onclick="switchTab('ao-dau',this)">👕 Số Áo</button>
+    <button class="tab-btn" onclick="switchTab('ket-qua',this)">📊 Kết Quả</button>
+    <button class="tab-btn" onclick="switchTab('goc-vui',this)">😂 Góc Vui</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ===== ĐỘI HÌNH ===== -->
+  <div class="tab-panel active" id="tab-doi-hinh">
+    <div class="sec-title">⚽ Sơ Đồ Chiến Thuật – Sân 7 Người – 2025/26</div>
+    <div class="field-layout">
+      <div class="field-wrap">
+        <div class="field" id="field">
+          <div class="f-line f-mid-h"></div>
+          <div class="f-circle"></div>
+          <div class="f-dot"></div>
+          <div class="f-box-t"></div>
+          <div class="f-box-b"></div>
+          <div class="formation" id="formation"></div>
+        </div>
+        <div class="sideline">
+          <div class="sideline-icon">📋</div>
+          <div class="sideline-info">
+            <b>Bi Nghiện – Nguyên &nbsp;#29</b>
+            <span>HLV Trưởng · Chỉ Đạo · Đội Trưởng CĐV · Xách Nước · Bổ Cam</span>
+          </div>
+        </div>
+        <div class="bench-area" id="bench-area"></div>
+      </div>
+      <div class="info-panel">
+        <h3>🏟️ THÔNG TIN ĐỘI – MÙA 2025/26</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem;">
+          <div class="ftag">Sân 7 Người</div>
+          <div class="ftag">3 – 2 – 1</div>
+          <div class="season-tag">2025 / 2026</div>
+        </div>
+        <div class="ipill"><span>🏠 Sân nhà</span><strong>Sân nào cũng là sân nhà</strong></div>
+        <div class="ipill"><span>📋 HLV trưởng</span><strong>Nguyên "Bi Nghiện" #29</strong></div>
+        <div class="ipill"><span>🧤 Thủ môn</span><strong>Dũng "Dúnglala" #49</strong></div>
+        <div class="ipill"><span>🎯 Chiến thuật</span><strong>Pressing cao, về muộn, tranh cãi nhiều</strong></div>
+        <div class="ipill"><span>👥 Quân số</span><strong>10 cầu thủ + 1 HLV kiêm xách nước</strong></div>
+        <div class="ipill"><span>🗓️ Mùa giải</span><strong>2025 – 2026</strong></div>
+        <div class="ipill"><span>🏫 Trường</span><strong>THPT Dương Xá – Lớp A04 K55</strong></div>
+        <div class="ipill"><span>🇻🇳 Quốc tịch</span><strong>100% hàng nội địa</strong></div>
+        <div class="chem-wrap">
+          <label>Chemistry tổng thể mùa 2025/26</label>
+          <div class="chem-track"><div class="chem-fill" id="chemfill"></div></div>
+          <div class="chem-note" id="chemnote">Đang tính...</div>
+        </div>
+        <div class="drag-hint">💡 Click cầu thủ để xem thẻ FCO · Kéo thả để đổi vị trí</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CẦU THỦ ===== -->
+  <div class="tab-panel" id="tab-cau-thu">
+    <div class="sec-title">👤 Danh Sách Cầu Thủ – Mùa 2025/26</div>
+    <div class="coach-banner">
+      <div class="coach-badge"><img src="https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Nguy%C3%AAn.png" alt="Coach Nguyên" style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;"></div>
+      <div class="coach-info">
+        <h2>NGUYÊN "BI NGHIỆN" – #29</h2>
+        <div class="roles">
+          <span class="role-tag">HLV Trưởng</span>
+          <span class="role-tag">Chỉ Đạo Viên</span>
+          <span class="role-tag">Đội Trưởng Cổ Vũ</span>
+          <span class="role-tag">Chuyên Viên Xách Nước</span>
+          <span class="role-tag">Bổ Cam Cao Cấp</span>
+        </div>
+        <p>Size M · Mùa 2025/26 · Không đá nhưng cũng chẳng đi xem. Đứng đường biên sân 4 Biển suốt mùa giải.</p>
+      </div>
+    </div>
+    <div class="squad-grid" id="squad-grid"></div>
+  </div>
+
+  <!-- ===== SỐ ÁO ===== -->
+  <div class="tab-panel" id="tab-ao-dau">
+    <div class="sec-title">👕 Số Áo & Tên In Áo – Mùa 2025/26</div>
+    <div style="margin-bottom:1.2rem;padding:.8rem 1.2rem;background:var(--dark3);border-radius:8px;border-left:3px solid var(--gold);font-size:.85rem;line-height:1.6;">
+      🎽 <strong style="color:var(--gold)">Áo đấu FC A04 Mùa 2025/26</strong> – Màu xanh Navy, tên in áo = nickname tự đặt. Đặt may riêng theo từng người, size từ M đến XXXL. Click vào áo để xem thẻ cầu thủ.
+    </div>
+    <div class="shirt-list" id="shirt-list"></div>
+  </div>
+
+  <!-- ===== KẾT QUẢ ===== -->
+  <div class="tab-panel" id="tab-ket-qua">
+    <div class="sec-title">📊 Kết Quả – Mùa Giải 2025/26</div>
+    <div class="season-header">
+      <div>
+        <div class="sh-label">⚽ MÙA GIẢI 2025 / 2026</div>
+        <div class="sh-val">FC A04 · Lớp A04 K55 · THPT Dương Xá · Sân 7 người</div>
+      </div>
+      <div style="font-family:'Orbitron',monospace;font-size:1.1rem;color:var(--gold);" id="season-record"></div>
+    </div>
+    <div class="results-list" id="results-list"></div>
+  </div>
+
+  <!-- ===== GÓC VUI ===== -->
+  <div class="tab-panel" id="tab-goc-vui">
+    <div class="fun-sec">
+      <h2>🏆 Danh Hiệu Troll – Mùa 2025/26</h2>
+      <div class="awards-grid" id="awards-grid"></div>
+    </div>
+    <div class="fun-sec">
+      <h2>📜 Nội Quy Đội FC A04 (Mùa 2025/26)</h2>
+      <ul class="rules-list" id="rules-list"></ul>
+    </div>
+    <div class="fun-sec">
+      <h2>💬 Câu Nói Để Đời Mùa Này</h2>
+      <div class="quotes-grid" id="quotes-grid"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- OVERLAY + FCO CARD -->
+<div class="overlay" id="overlay" onclick="closeCard(event)">
+  <div style="position:relative">
+    <button class="card-close" onclick="closeCard(null,true)">✕</button>
+    <div class="fco-card" id="fco-card">
+      <div class="card-hdr">
+        <div class="card-rating" id="c-rating">88</div>
+        <div class="card-pos-info">
+          <div class="card-pos" id="c-pos">ST</div>
+          <div class="card-shirt-num" id="c-shirt">#10</div>
+          <div class="card-season-lbl">25/26</div>
+        </div>
+        <div class="card-rarity-lbl" id="c-rarity-lbl">GOLD</div>
+      </div>
+      <div class="card-img-wrap">
+        <div class="card-ph" id="c-ph"></div>
+        <div id="c-img" style="display:none"></div>
+        <div class="card-img-glow"></div>
+      </div>
+      <div class="card-name-area">
+        <div class="card-pname" id="c-name">TEN CAU THU</div>
+        <div class="card-nick" id="c-nick">"biệt danh"</div>
+        <div class="card-meta" id="c-meta"></div>
+      </div>
+      <div class="card-stats" id="c-stats"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ========== DỮ LIỆU THẬT – MÙA 2025/26 ==========
+const SEASON = '2025/26';
+
+const players = [
+  {
+    id:1,name:"Lương Thế Hùng",short:"T.Hùng",alias:"LTH",cardPos:"center 60%",cardScale:0.7,shirt:7,
+    nickname:'"The Reliable One"',size:"L",pos:"CB",rating:78,flag:"🇻🇳",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/H%C3%B9ng.jpeg`,
+    stats:{PAC:68,SHO:42,PAS:70,DRI:58,DEF:78,PHY:74}
+  },
+  {
+    id:2,name:"Hải Long Jr",short:"H.Long",alias:"Hai Long Jr",shirt:11,
+    nickname:'"Jr – Sắp bắn vào đầu ông Hải(Bố Hùng))"',size:"L",pos:"LW",rating:80,flag:"🇻🇳",cardPos:"center 10%",cardFit:"cover",cardScale:0.5,avatarPos:"center 20%",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Long.png`,
+    stats:{PAC:82,SHO:74,PAS:72,DRI:80,DEF:40,PHY:65}
+  },
+  {
+    id:3,name:"Hoàng Lâm",short:"H.Lâm",alias:"Hoang Lam",shirt:8,
+    nickname:'"Trục Xương Sống Biết Đi"',size:"L",pos:"CM",rating:82,flag:"🇻🇳",cardPos:"center 30%",avatarPos:"center 35%",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/L%C3%A2m.jpg`,
+    stats:{PAC:72,SHO:68,PAS:82,DRI:75,DEF:65,PHY:70}
+  },
+  {
+    id:4,name:"Khánh Sky",short:"K.Sky",alias:"Khánh Sky",shirt:20,
+    nickname:'"Sky Không Phải Trời"',size:"M",pos:"RW",rating:85,flag:"🇻🇳",avatarPos:"65% 20%",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Kh%C3%A1nh.jpg`,
+    avatarCard:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Kh%C3%A1nh.jpg`,
+    cardPos:"70% 30%",
+    stats:{PAC:86,SHO:80,PAS:74,DRI:85,DEF:38,PHY:62}
+  },
+  {
+    id:5,name:"Lê Dương",short:"L.Dương",alias:"Le Duong",cardPos:"center 55%",cardScale:0.8,shirt:17,
+    nickname:'"XXL – Lê Anh Nuôi"',size:"XXL",pos:"CB",rating:76,flag:"🇻🇳",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/D%C6%B0%C6%A1ng.jpg`,
+    stats:{PAC:55,SHO:38,PAS:62,DRI:50,DEF:76,PHY:84}
+  },
+  {
+    id:6,name:"MaldiĐức",short:"MaldiĐức",alias:"MaldiDuc",cardScale:0.7,shirt:3,
+    nickname:'"XXXL – Lấp Cầu Môn Bằng Thân Hình"',size:"XXXL",pos:"CB",rating:74,flag:"🇻🇳",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/%C4%90%E1%BB%A9c.jpeg`,
+    stats:{PAC:40,SHO:30,PAS:55,DRI:42,DEF:74,PHY:90}
+  },
+  {
+    id:7,name:"Dúnglala",short:"Dúnglala",alias:"Dúnglala",cardPos:"center center",cardScale:0.6,shirt:49,
+    nickname:'"Thủ Môn Tên Hay Nhất Giải"',size:"XL",pos:"GK",rating:83,flag:"🇻🇳",cardPos:"center center",cardFit:"contain",avatarPos:"center center",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/D%C3%BAng%20LaLa.jpg`,
+    stats:{PAC:50,DIV:83,HND:80,KCK:68,REF:79,SPD:55}
+  },
+  {
+    id:8,name:"Lqt Trung",short:"L.Trung",alias:"Lqt",cardPos:"center 40%",cardScale:0.55,shirt:36,
+    nickname:'"36 – Số Tuổi Hay Số Áo?"',size:"L",pos:"ST",rating:87,flag:"🇻🇳",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Trung.png`,
+    avatarCard:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Trung.png`,
+    cardPos:"center center",
+    stats:{PAC:82,SHO:87,PAS:68,DRI:83,DEF:32,PHY:76}
+  },
+  {
+    id:9,name:"UEIH Hiếu",short:"UEIH",alias:"UEIH",cardPos:"center 50%",cardScale:0.6,shirt:10,
+    nickname:'"Số 10 – Không Phải Messi (Đã Nói)"',size:"L",pos:"CM",rating:81,flag:"🇻🇳",cardPos:"55% 15%",avatarPos:"55% 20%",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Hi%E1%BA%BFu.png`,
+    stats:{PAC:74,SHO:72,PAS:81,DRI:78,DEF:58,PHY:68}
+  },
+  // COACH – special card
+  {
+    id:10,name:"Bi Nghiện – Nguyên",short:"Nguyên",alias:"Bi Nghiện",shirt:29,
+    nickname:'"HLV · Michelin · Xách Nước · Bổ Cam"',size:"M",pos:"COACH",rating:99,flag:"🇻🇳",
+    avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Nguy%C3%AAn.png`,
+    avatarCard:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Hi%E1%BA%BFu.png`,
+    cardPos:"center center",
+    special:true,
+    stats:{CHIDAO:99,BOCAM:95,XACHNUOC:99,LAHETO:97,DADAU:10,CHAYBO:15}
+  }
+];
+
+// Sân 7 người – đội hình 3-2-1
+// Ra sân (7 người): GK Dúnglala + CB Hùng+MaldiĐức+Lqt Trung + CM Lâm+UEIH + ST Long
+// Dự bị: Khánh Sky, Lê Dương, Bi Nghiện
+const activeRows = [
+  { label:"Tấn công",  ids:[2] },         // Long (ST)
+  { label:"Tiền vệ",  ids:[1,9] },       // LTH Hùng (cánh) + UEIH (CM)
+  { label:"Hậu vệ",   ids:[3,8,6] },    // Lâm (CB) + Lqt Trung (CB) + MaldiĐức (CB)
+  { label:"Thủ môn",  ids:[7] }          // Dúnglala (GK)
+];
+
+// Dự bị: Khánh Sky (#20), Lê Dương (#17), Bi Nghiện – Nguyên (#29)
+const subPlayers = [4, 5, 10]; // id Khánh Sky, Lê Dương, Bi Nghiện
+
+// Kết quả mùa 2025/26
+const results = [
+  {date:"06/09/2025",home:"FC A04",away:"Đội IT Tầng 3",score:"4–1",result:"win",note:"Khánh Sky hat-trick, đối thủ tưởng đến giao lưu 💀"},
+  {date:"13/09/2025",home:"FC Hàng Xóm Mới",away:"FC A04",score:"2–3",result:"win",note:"Ngược dòng từ 0-2 – Lqt Trung ghi bàn phút 84"},
+  {date:"20/09/2025",home:"FC A04",away:"CLB Startup",score:"2–2",result:"draw",note:"Dúnglala cứu penalty phút 90 – xứng số 49 huyền thoại"},
+  {date:"27/09/2025",home:"FC Cựu Sinh Viên",away:"FC A04",score:"4–2",result:"loss",note:"MaldiĐức trượt 2 bóng liên tiếp – không cần giải thích thêm"},
+  {date:"04/10/2025",home:"FC A04",away:"Nhóm Bạn Bè",score:"3–0",result:"win",note:"Clean sheet! Nguyên la hét 90 phút ngoài đường biên 📣"},
+  {date:"11/10/2025",home:"FC A04",away:"Đội Công Ty B",score:"1–1",result:"draw",note:"Dẫn 1-0 rồi ngồi chờ còi kết thúc... bị gỡ phút 90+2"},
+  {date:"18/10/2025",home:"FC A04",away:"Sân 4 Biển Select",score:"5–2",result:"win",note:"Đại thắng ngay sân nhà – Sân 4 Biển không bao giờ phụ lòng 🏠"},
+  {date:"25/10/2025",home:"FC Thách Đấu Online",away:"FC A04",score:"0–6",result:"win",note:"6 bàn! Nguyên bổ cam xong vẫn còn thừa cam 🍊"},
+  {date:"01/11/2025",home:"FC A04",away:"Đội Bóng Phường",score:"2–3",result:"loss",note:"Thua sân khách, Nguyên mất giọng chỉ đạo sau trận này"},
+  {date:"08/11/2025",home:"FC A04",away:"CLB Bạn Thân",score:"4–1",result:"win",note:"Lâm và UEIH song kiếm hợp bích – tiki-taka chợ huyện"},
+  {date:"15/11/2025",home:"Đội Bóng ABC",away:"FC A04",score:"1–1",result:"draw",note:"Hùng phòng thủ tốt – chỉ tiếc hàng công cũng tốt... không kém"},
+  {date:"22/11/2025",home:"FC A04",away:"FC Chung Kết",score:"3–2",result:"win",note:"Trận quyết định! Sân 4 Biển vỡ òa, Dúnglala khóc vì hạnh phúc"},
+];
+
+const awards = [
+  {icon:"🧤",title:"Thủ Môn Tên Hay Nhất",winner:"Dúnglala #49",reason:"Tên tự đặt. Không ai hiểu nghĩa. Ai cũng nhớ."},
+  {icon:"🎭",title:"Diễn Viên Xuất Sắc",winner:"Lqt Trung #36",reason:"Ngã 14 lần mùa này. Penalty được: 0. Chờ thêm mùa sau."},
+  {icon:"🥹",title:"Lốp Bền Nhất 2025/26",winner:"Nguyên #29 ",reason:"Anh yêu em mãi không còn điểm dừng."},
+  {icon:"🧱",title:"Tường Thành Đặc Biệt",winner:"MaldiĐức #3",reason:"XXXL – Lấp 30% cầu môn chỉ bằng cách đứng yên"},
+  {icon:"💧",title:"Xách Nước Chuyên Nghiệp",winner:"Nguyên #29 ",reason:"Mùa 2025/26: 12 trận, 24 bình nước, không đổ giọt nào"},
+  {icon:"📏",title:"Size Áo Độc Nhất 25/26",winner:"MaldiĐức #3",reason:"XXXL trong đội toàn M-L – phải đặt vải riêng may áo"},
+];
+
+const rules = [
+  "Mùa 2025/26: có mặt tại sân trước 15 phút – Nguyên đến trước cắt cam rồi ngồi xem",
+  "Ai ghi bàn khao trà đá ông Tuy – ai phản lưới khao 2 ly",
+  "XXXL và XXL được phép đứng yên kiểm soát không gian – đây là chiến thuật, không phải lười",
+  "Dúnglala giữ khung thành bất khả xâm phạm – không ai được ném bóng vào mặt thủ môn kể cả đùa",
+  "Mọi tranh cãi chiến thuật kết thúc bằng: 'Nguyên bảo vậy' và sau đó không ai làm theo",
+  "Sau mỗi trận đá xong là kéo nhau ra ông Tuy – ai không đi bị coi là phản bội tập thể",
+  "Phí phạt trà đá: ngã không bóng = 1 ly · khóc = cả bàn · chê đồng đội trên mạng = khao cả đội + xin lỗi công khai"
+];
+
+const quotes = [
+  {text:"Anh tán Tuyết 2 năm không đổ đấy, các em ăn đi!",author:"— Bi Nghiện – Nguyên, HLV kiêm bổ cam mùa 2025/26"},
+  {text:"Số 49 là may mắn. Tôi chọn vì chưa ai chọn, và mùa này chứng minh đúng.",author:"— Dúnglala, thủ môn triết học"},
+  {text:"Chỉ vì những chuyện nhỏ nhặt mà ảnh hưởng đến tình cảm anh em,thằng đấy là thằng đéo ra gì",author:"— UEIH Hiếu, tiền vệ tư duy tiên tiến"},
+  {text:"Đối yếu đá làm buồi gì phí tiền,đối kia mạnh lắm ko ăn được.",author:"— FC A04 – tập thể"},
+  {text:"Bi-a ra dại, bóng đá ra dại, thằng Tuy là thằng nào?",author:"— Khánh Sky, cánh phải tốc độ cao"},
+  {text:"Hút khỏe hơn đá khỏe,bản lĩnh thì ra Tuy 1v1 bắn thuốc lào",author:"— Lqt Trung, hậu vệ hút khỏe nhất đội"},
+];
+
+// ========== UTILS ==========
+const getById = id => players.find(p => p.id === id);
+function rarity(r, special) {
+  if (special) return 'special';
+  if (r >= 85) return 'elite';
+  if (r >= 75) return 'gold';
+  return 'trash';
+}
+function rarityLabel(r, special) {
+  if (special) return 'COACH';
+  if (r >= 85) return 'ELITE';
+  if (r >= 75) return 'GOLD';
+  return 'TRASH';
+}
+
+// ========== SOUND ==========
+function beep() {
+  try {
+    const a = new (window.AudioContext || window.webkitAudioContext)();
+    const o = a.createOscillator(), g = a.createGain();
+    o.connect(g); g.connect(a.destination);
+    o.type = 'sine'; o.frequency.setValueAtTime(1046, a.currentTime);
+    o.frequency.exponentialRampToValueAtTime(523, a.currentTime + .12);
+    g.gain.setValueAtTime(.12, a.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001, a.currentTime + .22);
+    o.start(); o.stop(a.currentTime + .22);
+  } catch(e) {}
+}
+
+// ========== TOAST ==========
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+// ========== FIELD ==========
+function renderField() {
+  const f = document.getElementById('formation');
+  f.innerHTML = '';
+  activeRows.forEach(row => {
+    const wrap = document.createElement('div');
+    wrap.innerHTML = `<div class="f-row-label">${row.label}</div>`;
+    const rowDiv = document.createElement('div');
+    rowDiv.className = 'f-row';
+    row.ids.forEach(pid => {
+      const p = getById(pid); if (!p) return;
+      const rv = rarity(p.rating, p.special);
+      const tok = document.createElement('div');
+      tok.className = 'ptoken'; tok.dataset.id = p.id; tok.draggable = true;
+      tok.innerHTML = `
+        <div class="pavatar r-${rv}">
+          <img src="${p.avatar}" alt="${p.name}" onerror="this.style.display='none'" style="object-position:${p.avatarPos||'top center'}">
+          <div class="pos-chip">${p.pos}</div>
+        </div>
+        <div class="pname-field">${p.alias || p.short}</div>
+      `;
+      tok.addEventListener('click', e => { e.stopPropagation(); openCard(p); });
+      tok.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('pid', p.id);
+        setTimeout(() => tok.classList.add('dragging'), 0);
+      });
+      tok.addEventListener('dragend', () => tok.classList.remove('dragging'));
+      tok.addEventListener('dragover', e => { e.preventDefault(); tok.classList.add('drop-target'); });
+      tok.addEventListener('dragleave', () => tok.classList.remove('drop-target'));
+      tok.addEventListener('drop', e => {
+        e.preventDefault(); tok.classList.remove('drop-target');
+        swapOnField(parseInt(e.dataTransfer.getData('pid')), p.id);
+      });
+      rowDiv.appendChild(tok);
+    });
+    wrap.appendChild(rowDiv);
+    f.appendChild(wrap);
+  });
+  setTimeout(() => {
+    document.getElementById('chemfill').style.width = '78%';
+    document.getElementById('chemnote').textContent = '78/100 – "Đủ để đồng đội tin nhau 78% – mùa 2025/26"';
+  }, 400);
+}
+
+function swapOnField(a, b) {
+  if (a === b) return;
+  let ar, ai, br, bi;
+  activeRows.forEach((row, ri) => {
+    const ia = row.ids.indexOf(a), ib = row.ids.indexOf(b);
+    if (ia !== -1) { ar = ri; ai = ia; }
+    if (ib !== -1) { br = ri; bi = ib; }
+  });
+  if (ar !== undefined && br !== undefined) {
+    if (ar === br) {
+      [activeRows[ar].ids[ai], activeRows[ar].ids[bi]] = [activeRows[ar].ids[bi], activeRows[ar].ids[ai]];
+    } else {
+      activeRows[ar].ids[ai] = b;
+      activeRows[br].ids[bi] = a;
+    }
+  }
+  renderField();
+  toast('↕️ Đã đổi vị trí!');
+}
+
+// ========== CARD ==========
+function openCard(p) {
+  beep();
+  const rv = rarity(p.rating, p.special);
+  const card = document.getElementById('fco-card');
+  const ov = document.getElementById('overlay');
+  card.className = `fco-card r-${rv}`;
+  document.getElementById('c-rating').textContent = p.rating;
+  document.getElementById('c-pos').textContent = p.pos;
+  document.getElementById('c-shirt').textContent = `#${p.shirt}`;
+  document.getElementById('c-rarity-lbl').textContent = rarityLabel(p.rating, p.special);
+  document.getElementById('c-name').textContent = p.name.toUpperCase();
+  document.getElementById('c-nick').textContent = p.nickname;
+  document.getElementById('c-meta').innerHTML = `
+    <span>Size ${p.size}</span>
+    <span>${p.flag} VN</span>
+    <span>Mùa ${SEASON}</span>
+  `;
+  const img = document.getElementById('c-img');
+  const ph = document.getElementById('c-ph');
+  const src = p.avatarCard || p.avatar;
+  if (src) {
+    img.style.display = 'block'; ph.style.display = 'none';
+    img.style.backgroundImage = 'url(' + src + ')';
+    const pos = p.cardPos || 'top center';
+    const scale = p.cardScale || 1;
+    // scale < 1 → zoom out: use background-size percentage
+    const bgSize = scale < 1 ? (scale * 100) + '%' : 'cover';
+    img.style.setProperty('--img-bg-pos', pos);
+    img.style.setProperty('--img-bg-size', bgSize);
+    img.style.backgroundPosition = pos;
+    img.style.backgroundSize = bgSize;
+  } else {
+    img.style.display = 'none'; ph.style.display = 'flex'; ph.textContent = '⚽';
+  }
+  const sa = document.getElementById('c-stats'); sa.innerHTML = '';
+  Object.entries(p.stats).forEach(([k, v]) => {
+    const row = document.createElement('div'); row.className = 'stat-row';
+    row.innerHTML = `<span class="stat-lbl">${k}</span><div class="stat-bg"><div class="stat-fill" style="width:0%" data-t="${v}"></div></div><span class="stat-val">${v}</span>`;
+    sa.appendChild(row);
+  });
+  ov.style.display = 'flex';
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    ov.classList.add('visible'); card.classList.add('show');
+    setTimeout(() => document.querySelectorAll('.stat-fill').forEach(b => b.style.width = b.dataset.t + '%'), 200);
+  }));
+}
+
+function closeCard(e, force) {
+  if (!force && e && e.target !== document.getElementById('overlay')) return;
+  const card = document.getElementById('fco-card');
+  const ov = document.getElementById('overlay');
+  card.classList.remove('show'); ov.classList.remove('visible');
+  setTimeout(() => { ov.style.display = 'none'; }, 380);
+}
+
+// ========== SQUAD ==========
+function renderSquad() {
+  const g = document.getElementById('squad-grid'); g.innerHTML = '';
+  players.forEach(p => {
+    const rv = rarity(p.rating, p.special);
+    const c = document.createElement('div'); c.className = `scard r-${rv}`;
+    c.innerHTML = `
+      <div class="scard-avatar"><img src="${p.avatar}" alt="${p.name}" onerror="this.textContent='⚽'" style="object-position:${p.avatarPos||'top center'}"></div>
+      <div class="srating">${p.rating}</div>
+      <div class="spos">${p.pos}</div>
+      <div class="sname">${p.name}</div>
+      <div class="snick">${p.nickname}</div>
+      <span class="ssize">Size ${p.size}</span>
+      <div class="mini-stats">
+        ${Object.entries(p.stats).slice(0, 3).map(([k, v]) => `<div class="mstat">${k} <span>${v}</span></div>`).join('')}
+      </div>
+    `;
+    c.addEventListener('click', () => openCard(p));
+    g.appendChild(c);
+  });
+}
+
+// ========== SHIRTS ==========
+function renderShirts() {
+  const g = document.getElementById('shirt-list'); g.innerHTML = '';
+  const sorted = [...players].sort((a, b) => a.shirt - b.shirt);
+  sorted.forEach(p => {
+    const c = document.createElement('div'); c.className = 'shirt-card';
+    const rv = rarity(p.rating, p.special);
+    const lastName = p.name.split(' ').slice(-1)[0];
+    c.innerHTML = `
+      <div class="shirt-num">${p.shirt}</div>
+      <div class="shirt-real-name">${lastName}</div>
+      <div class="shirt-alias">${p.alias}</div>
+      <span class="shirt-size">Size ${p.size}</span>
+      <span class="shirt-pos-badge">${p.pos}</span>
+    `;
+    c.addEventListener('click', () => openCard(p));
+    g.appendChild(c);
+  });
+}
+
+// ========== RESULTS ==========
+function renderResults() {
+  const l = document.getElementById('results-list'); l.innerHTML = '';
+  const w = results.filter(r => r.result === 'win').length;
+  const d = results.filter(r => r.result === 'draw').length;
+  const lo = results.filter(r => r.result === 'loss').length;
+  document.getElementById('season-record').textContent = `${w}W · ${d}D · ${lo}L`;
+  results.forEach(r => {
+    const item = document.createElement('div'); item.className = 'result-item';
+    const bc = r.result === 'win' ? 'b-win' : r.result === 'loss' ? 'b-loss' : 'b-draw';
+    const bl = r.result === 'win' ? 'THẮNG' : r.result === 'loss' ? 'THUA' : 'HÒA';
+    const sc = r.result === 'win' ? 'var(--win)' : r.result === 'loss' ? 'var(--loss)' : 'var(--draw)';
+    item.innerHTML = `
+      <div class="rdate">${r.date}</div>
+      <div class="rteams">${r.home} <span style="color:var(--text-dim)">vs</span> ${r.away}</div>
+      <div class="rscore" style="color:${sc}">${r.score}</div>
+      <div class="rbadge ${bc}">${bl}</div>
+      <div class="rnote">${r.note}</div>
+    `;
+    l.appendChild(item);
+  });
+  const sr = document.createElement('div'); sr.className = 'stats-row';
+  const goalsFor = results.reduce((s, r) => {
+    const [a, b] = r.score.split('–').map(Number);
+    return s + (r.home === 'FC A04' ? a : b);
+  }, 0);
+  const goalsAgainst = results.reduce((s, r) => {
+    const [a, b] = r.score.split('–').map(Number);
+    return s + (r.home === 'FC A04' ? b : a);
+  }, 0);
+  sr.innerHTML = `
+    <div class="pill"><b style="color:var(--win)">${w}</b>Thắng</div>
+    <div class="pill"><b style="color:var(--draw)">${d}</b>Hòa</div>
+    <div class="pill"><b style="color:var(--loss)">${lo}</b>Thua</div>
+    <div class="pill"><b>${w * 3 + d}</b>Điểm</div>
+    <div class="pill"><b>${goalsFor}</b>Bàn thắng</div>
+    <div class="pill"><b>${goalsAgainst}</b>Bàn thủng</div>
+  `;
+  l.appendChild(sr);
+}
+
+// ========== FUN ==========
+function renderFun() {
+  const ag = document.getElementById('awards-grid'); ag.innerHTML = '';
+  awards.forEach(a => {
+    const c = document.createElement('div'); c.className = 'award-c';
+    c.innerHTML = `<div class="award-icon">${a.icon}</div><div class="award-title">${a.title}</div><div class="award-winner">${a.winner}</div><div class="award-reason">${a.reason}</div>`;
+    ag.appendChild(c);
+  });
+  const rl = document.getElementById('rules-list'); rl.innerHTML = '';
+  rules.forEach(r => { const li = document.createElement('li'); li.textContent = r; rl.appendChild(li); });
+  const qg = document.getElementById('quotes-grid'); qg.innerHTML = '';
+  quotes.forEach(q => {
+    const c = document.createElement('div'); c.className = 'quote-c';
+    c.innerHTML = `${q.text}<div class="qa">${q.author}</div>`;
+    qg.appendChild(c);
+  });
+}
+
+// ========== TABS ==========
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+
+// ========== BENCH ==========
+function renderBench() {
+  const ba = document.getElementById('bench-area');
+  if (!ba) return;
+  ba.innerHTML = '<div class="bench-label">🪑 Dự bị</div><div class="bench-players" id="bench-players"></div>';
+  const bp = document.getElementById('bench-players');
+  subPlayers.forEach(pid => {
+    const p = getById(pid); if (!p) return;
+    const rv = rarity(p.rating, p.special);
+    const tok = document.createElement('div');
+    tok.className = 'bench-token';
+    tok.innerHTML = `
+      <div class="bench-avatar">
+        <img src="${p.avatar}" alt="${p.name}" onerror="this.style.display='none'" style="object-position:${p.avatarPos||'top center'}">
+        <div class="bench-chip">${p.pos}</div>
+      </div>
+      <div class="bench-name">${p.alias || p.short}</div>
+      <div class="bench-sub-txt">DỰ BỊ</div>
+    `;
+    tok.addEventListener('click', () => openCard(p));
+    bp.appendChild(tok);
+  });
+}
+
+// ========== INIT ==========
+renderField();
+renderBench();
+renderSquad();
+renderShirts();
+renderResults();
+renderFun();
+
+// ========== TOUCH DRAG (mobile) ==========
+(function(){
+  let draggingId = null, dragGhost = null;
+
+  function getTokenAtPoint(x, y) {
+    const els = document.elementsFromPoint(x, y);
+    for (const el of els) {
+      const tok = el.closest('.ptoken');
+      if (tok && tok.dataset.id != draggingId) return tok;
+    }
+    return null;
+  }
+
+  document.addEventListener('touchstart', e => {
+    const tok = e.target.closest('.ptoken');
+    if (!tok) return;
+    draggingId = tok.dataset.id;
+    tok.classList.add('dragging');
+
+    // Ghost
+    dragGhost = tok.cloneNode(true);
+    dragGhost.style.cssText = `position:fixed;opacity:.7;pointer-events:none;z-index:9999;transform:scale(1.1);transition:none;`;
+    const r = tok.getBoundingClientRect();
+    dragGhost.style.left = r.left + 'px';
+    dragGhost.style.top = r.top + 'px';
+    dragGhost.style.width = r.width + 'px';
+    document.body.appendChild(dragGhost);
+  }, {passive:true});
+
+  document.addEventListener('touchmove', e => {
+    if (!draggingId) return;
+    e.preventDefault();
+    const t = e.touches[0];
+    dragGhost.style.left = (t.clientX - dragGhost.offsetWidth/2) + 'px';
+    dragGhost.style.top  = (t.clientY - dragGhost.offsetHeight/2) + 'px';
+
+    document.querySelectorAll('.drop-target').forEach(el => el.classList.remove('drop-target'));
+    const over = getTokenAtPoint(t.clientX, t.clientY);
+    if (over) over.classList.add('drop-target');
+  }, {passive:false});
+
+  document.addEventListener('touchend', e => {
+    if (!draggingId) return;
+    const t = e.changedTouches[0];
+    const over = getTokenAtPoint(t.clientX, t.clientY);
+    if (over && over.dataset.id !== draggingId) {
+      const a = parseInt(draggingId), b = parseInt(over.dataset.id);
+      // swap in activeRows
+      for (const row of activeRows) {
+        const ai = row.ids.indexOf(a), bi = row.ids.indexOf(b);
+        if (ai > -1) row.ids[ai] = b;
+        if (bi > -1) row.ids[bi] = a;
+      }
+      renderField();
+      toast('✅ Đổi vị trí thành công');
+    }
+    document.querySelectorAll('.ptoken.dragging').forEach(el => el.classList.remove('dragging'));
+    document.querySelectorAll('.drop-target').forEach(el => el.classList.remove('drop-target'));
+    if (dragGhost) { dragGhost.remove(); dragGhost = null; }
+    draggingId = null;
+  }, {passive:true});
+})();
+
+// ========== PERFORMANCE: passive scroll ==========
+document.addEventListener('touchstart', ()=>{}, {passive:true});
+document.addEventListener('wheel', ()=>{}, {passive:true});
+</script>
+</body>
+</html>

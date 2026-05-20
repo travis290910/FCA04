@@ -136,7 +136,7 @@ header{
 .field{
   border-radius:10px;border:3px solid rgba(255,255,255,.65);
   position:relative;overflow:hidden;
-  min-height:480px;padding:1.2rem 2rem;
+  min-height:620px;padding:1.8rem 2rem;
   box-shadow:0 20px 60px rgba(0,0,0,.7),inset 0 0 60px rgba(0,0,0,.15);
   background:repeating-linear-gradient(180deg,var(--field) 0px,var(--field) 36px,var(--field2) 36px,var(--field2) 72px);
 }
@@ -159,8 +159,8 @@ header{
 }
 .f-box-t{top:0;border-top:none;}
 .f-box-b{bottom:0;border-bottom:none;}
-.formation{display:flex;flex-direction:column;height:100%;min-height:440px;justify-content:space-between;gap:.4rem;}
-.f-row{display:flex;justify-content:center;gap:.5rem;align-items:center;}
+.formation{display:flex;flex-direction:column;height:100%;min-height:580px;justify-content:space-between;gap:0;}
+.f-row{display:flex;justify-content:center;gap:2.5rem;align-items:center;padding:.8rem 0;}
 .f-row-label{text-align:center;font-size:.52rem;letter-spacing:.18em;color:rgba(255,255,255,.28);text-transform:uppercase;margin-bottom:1px;}
 
 /* Player token */
@@ -172,10 +172,10 @@ header{
 .ptoken:hover{transform:scale(1.18);}
 .ptoken.dragging{opacity:.45;transform:scale(1.2);z-index:100;}
 .pavatar{
-  width:52px;height:52px;border-radius:50%;border:2.5px solid rgba(255,255,255,.7);
+  width:68px;height:68px;border-radius:50%;border:2.5px solid rgba(255,255,255,.7);
   overflow:hidden;background:var(--dark3);
   display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;
+  font-size:1.8rem;
   box-shadow:0 4px 14px rgba(0,0,0,.55);
   position:relative;flex-shrink:0;
 }
@@ -539,7 +539,7 @@ header{
 
 /* --- BENCH AVATAR (dự bị) --- */
 .bench-avatar{
-  width:42px;height:42px;border-radius:50%;
+  width:60px;height:60px;border-radius:50%;
   overflow:hidden;flex-shrink:0;
   position:relative;
 }
@@ -568,9 +568,9 @@ header{
 /* --- RESPONSIVE MOBILE --- */
 @media(max-width:600px){
   .logo-ring img.fc-logo{inset:3px;width:calc(100% - 6px);height:calc(100% - 6px);}
-  .pavatar{width:36px;height:36px;}
+  .pavatar{width:54px;height:54px;}
   .scard-avatar{width:54px;height:54px;}
-  .bench-avatar{width:36px;height:36px;}
+  .bench-avatar{width:50px;height:50px;}
   .card-img-wrap{height:140px;}
   .coach-badge{width:60px;height:60px;}
 }
@@ -597,11 +597,11 @@ header{
 .bench-players{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;}
 .bench-token{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;transition:transform .2s;}
 .bench-token:hover{transform:scale(1.12);}
-.bench-avatar{width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px dashed rgba(255,215,0,.35);background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.4);filter:brightness(.65) saturate(.5);}
+.bench-avatar{width:60px;height:60px;border-radius:50%;overflow:hidden;border:2px dashed rgba(255,215,0,.35);background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:1.6rem;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.4);filter:brightness(.65) saturate(.5);}
 .bench-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-.bench-chip{position:absolute;top:-4px;right:-4px;background:#252530;color:var(--gold2);font-size:.42rem;font-weight:700;border-radius:3px;padding:1px 3px;border:1px solid rgba(255,165,0,.35);font-family:'Orbitron',monospace;}
-.bench-name{font-size:.54rem;color:rgba(255,255,255,.42);text-align:center;max-width:46px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:rgba(0,0,0,.35);border-radius:3px;padding:1px 3px;}
-.bench-sub-txt{font-size:.5rem;color:rgba(255,165,0,.6);font-weight:700;letter-spacing:.04em;}
+.bench-chip{position:absolute;top:-4px;right:-4px;background:#252530;color:var(--gold2);font-size:.48rem;font-weight:700;border-radius:3px;padding:1px 4px;border:1px solid rgba(255,165,0,.35);font-family:'Orbitron',monospace;}
+.bench-name{font-size:.62rem;color:rgba(255,255,255,.42);text-align:center;max-width:62px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:rgba(0,0,0,.35);border-radius:3px;padding:1px 4px;}
+.bench-sub-txt{font-size:.54rem;color:rgba(255,165,0,.6);font-weight:700;letter-spacing:.04em;}
 
 @media(max-width:600px){
   /* Header */
@@ -629,17 +629,18 @@ header{
 
   /* Field layout: single column */
   .field-layout{grid-template-columns:1fr;gap:.8rem;}
-  .field{padding:.5rem .45rem;min-height:300px;touch-action:none;border-width:2px;}
+  .field{padding:.9rem .6rem;min-height:540px;touch-action:none;border-width:2px;}
   .f-circle{width:60px;height:60px;}
-  .pavatar{width:36px;height:36px;min-width:36px;min-height:36px;font-size:.9rem;flex-shrink:0;}
-  .pname-field{font-size:.42rem;max-width:40px;}
-  .pos-chip{font-size:.35rem;padding:1px 2px;}
-  .f-row{gap:.2rem;}
+  .formation{min-height:500px;}
+  .f-row{gap:2rem;padding:.7rem 0;}
+  .pavatar{width:54px;height:54px;min-width:54px;min-height:54px;font-size:1.2rem;flex-shrink:0;}
+  .pname-field{font-size:.52rem;max-width:56px;}
+  .pos-chip{font-size:.4rem;padding:1px 3px;}
 
   /* Bench */
   .bench-area{padding:.4rem .55rem;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .bench-avatar{width:32px;height:32px;min-width:32px;min-height:32px;}
-  .bench-name{font-size:.42rem;max-width:34px;}
+  .bench-avatar{width:50px;height:50px;min-width:50px;min-height:50px;}
+  .bench-name{font-size:.52rem;max-width:54px;}
 
   /* Info panel */
   .ipill{font-size:.7rem;padding:.35rem .65rem;}

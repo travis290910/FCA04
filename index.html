@@ -1127,9 +1127,9 @@ function openCard(p) {
     img.style.display = 'block'; ph.style.display = 'none';
     img.style.backgroundImage = 'url(' + src + ')';
     const pos = p.cardPos || 'top center';
-    const fit = p.cardFit || 'cover';
+    const bgSize = p.cardScale ? (p.cardScale * 100) + '%' : (p.cardFit || 'cover');
     img.style.backgroundPosition = pos;
-    img.style.backgroundSize = fit;
+    img.style.backgroundSize = bgSize;
     img.style.backgroundRepeat = 'no-repeat';
   } else {
     img.style.display = 'none'; ph.style.display = 'flex'; ph.textContent = '⚽';

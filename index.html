@@ -520,7 +520,7 @@ header{
 
 /* --- CARD OVERLAY (popup chi tiết) --- */
 .card-img-wrap{
-  height:175px;position:relative;
+  height:220px;position:relative;
   overflow:hidden;background:rgba(0,0,0,.35);
   display:flex;align-items:center;justify-content:center;
 }
@@ -909,7 +909,7 @@ const players = [
   },
   {
     id:6,name:"MaldiĐức",short:"MaldiĐức",alias:"MaldiDuc",cardScale:0.7,shirt:3,
-    nickname:'"XXXL – Lấp Cầu Môn Bằng Thân Hình"',size:"XXXL",pos:"CB",rating:74,flag:"🇻🇳",cardPos:"center 25%",
+    nickname:'"XXXL – Lấp Cầu Môn Bằng Thân Hình"',size:"XXXL",pos:"CB",rating:74,flag:"🇻🇳",cardPos:"center top",cardFit:"contain",
     avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/%C4%90%E1%BB%A9c.jpeg`,
     stats:{PAC:40,SHO:30,PAS:55,DRI:42,DEF:74,PHY:90}
   },
@@ -1127,13 +1127,10 @@ function openCard(p) {
     img.style.display = 'block'; ph.style.display = 'none';
     img.style.backgroundImage = 'url(' + src + ')';
     const pos = p.cardPos || 'top center';
-    const scale = p.cardScale || 1;
-    // scale < 1 → zoom out: use background-size percentage
-    const bgSize = scale < 1 ? (scale * 100) + '%' : 'cover';
-    img.style.setProperty('--img-bg-pos', pos);
-    img.style.setProperty('--img-bg-size', bgSize);
+    const fit = p.cardFit || 'cover';
     img.style.backgroundPosition = pos;
-    img.style.backgroundSize = bgSize;
+    img.style.backgroundSize = fit;
+    img.style.backgroundRepeat = 'no-repeat';
   } else {
     img.style.display = 'none'; ph.style.display = 'flex'; ph.textContent = '⚽';
   }

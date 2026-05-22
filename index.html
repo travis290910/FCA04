@@ -17,7 +17,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;600;700&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --font-mono:'Orbitron',monospace;
   --gold:#FFD700;--gold2:#FFA500;--cyan:#00FFFF;--elite:#00e5ff;
   --dark:#080810;--dark2:#10101c;--dark3:#181826;--card-bg:#12121e;
   --text:#e8e8f0;--text-dim:#7878a0;
@@ -25,12 +24,9 @@
   --trash:#55556a;--field:#2a7a2a;--field2:#329632;
 }
 @media(prefers-reduced-motion:reduce){
-  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;
-  .logo-ring{animation:none;
-}
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-.circle{border-radius:50%;}
 html{scroll-behavior:smooth;}
 body{background:var(--dark);color:var(--text);font-family:'Rajdhani',sans-serif;min-height:100vh;overflow-x:hidden;}
 body::before{
@@ -39,6 +35,7 @@ body::before{
     radial-gradient(ellipse 60% 40% at 10% 20%,#0a1f4022 0%,transparent 70%),
     radial-gradient(ellipse 50% 60% at 90% 80%,#1a0a2822 0%,transparent 70%);
 }
+
 
 /* ===== HEADER ===== */
 header{
@@ -71,26 +68,25 @@ header{
 .logo-ring::after{
   content:'A04';position:absolute;inset:4px;border-radius:50%;
   background:var(--dark2);
-  font-family:var(--font-mono);font-size:1.05rem;font-weight:900;color:var(--gold);
+  font-family:'Orbitron',monospace;font-size:1.05rem;font-weight:900;color:var(--gold);
   display:flex;align-items:center;justify-content:center;
 }
 @keyframes spin-ring{
   from{transform:rotate(0deg);}
   to{transform:rotate(360deg);}
 }
+@media(prefers-reduced-motion:reduce){
+  .logo-ring{animation:none;}
 }
 .brand h1{
-  font-family:var(--font-mono);font-weight:900;
+  font-family:'Orbitron',monospace;font-weight:900;
   font-size:clamp(1.5rem,5vw,2.4rem);
   color:var(--gold);
   letter-spacing:.12em;
   display:block;
 }
 @media(max-width:768px){
-  .brand h1{animation:none;
-  .scard:hover{transform:none;
-  .coach-banner{box-shadow:none;
-}
+  .brand h1{animation:none;}
 }
 .brand .sub{font-size:.8rem;color:var(--gold2);font-style:italic;letter-spacing:.05em;margin-top:2px;}
 .brand .sub2{font-size:.72rem;color:var(--text-dim);margin-top:1px;}
@@ -100,7 +96,7 @@ header{
   border-radius:20px;padding:.28rem .8rem;text-align:center;
   font-size:.72rem;color:var(--text-dim);
 }
-.pill b{display:block;font-family:var(--font-mono);font-size:.95rem;color:var(--gold);font-weight:700;}
+.pill b{display:block;font-family:'Orbitron',monospace;font-size:.95rem;color:var(--gold);font-weight:700;}
 
 /* SEASON BADGE */
 .season-badge{
@@ -108,7 +104,7 @@ header{
   background:linear-gradient(90deg,rgba(255,215,0,.12),rgba(255,215,0,.05));
   border-bottom:1px solid rgba(255,215,0,.18);
   text-align:center;padding:.4rem 1rem;
-  font-family:var(--font-mono);font-size:.75rem;color:var(--gold);
+  font-family:'Orbitron',monospace;font-size:.75rem;color:var(--gold);
   letter-spacing:.2em;
 }
 .season-badge span{color:rgba(255,255,255,.4);margin:0 .8rem;}
@@ -133,7 +129,7 @@ header{
 .tab-panel.active{display:block;animation:fadeUp .3s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .sec-title{
-  font-family:var(--font-mono);font-size:1.1rem;font-weight:700;color:var(--gold);
+  font-family:'Orbitron',monospace;font-size:1.1rem;font-weight:700;color:var(--gold);
   margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;
 }
 .sec-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,215,0,.4),transparent);}
@@ -208,7 +204,7 @@ header{
   background:var(--dark);color:var(--gold);
   font-size:.48rem;font-weight:700;border-radius:3px;
   padding:1px 3px;border:1px solid var(--gold);
-  font-family:var(--font-mono);
+  font-family:'Orbitron',monospace;
 }
 .pname-field{
   font-size:.6rem;font-weight:700;color:#fff;
@@ -231,7 +227,7 @@ header{
 .sideline-info span{color:var(--text-dim);font-style:italic;}
 
 /* Info panel */
-.info-panel h3{font-family:var(--font-mono);color:var(--gold);font-size:.95rem;margin-bottom:1rem;}
+.info-panel h3{font-family:'Orbitron',monospace;color:var(--gold);font-size:.95rem;margin-bottom:1rem;}
 .ftag{
   display:inline-block;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);
   color:var(--gold);border-radius:6px;padding:.28rem .8rem;
@@ -242,7 +238,7 @@ header{
   background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.3);
   color:var(--elite);border-radius:6px;padding:.28rem .8rem;
   font-size:.8rem;font-weight:700;margin-bottom:.8rem;letter-spacing:.08em;
-  font-family:var(--font-mono);
+  font-family:'Orbitron',monospace;
 }
 .ipill{
   background:var(--dark3);border:1px solid rgba(255,255,255,.07);
@@ -267,6 +263,8 @@ header{
 .scard:hover{transform:translateY(-2px);}
 .scard.r-elite:hover{border-color:var(--elite);}
 .scard.r-gold:hover{border-color:var(--gold);}
+@media(max-width:768px){
+  .scard:hover{transform:none;}
   .scard.r-elite:hover,.scard.r-gold:hover{box-shadow:none;}
 }
 .scard-avatar{
@@ -279,7 +277,7 @@ header{
 .r-gold .scard-avatar{border-color:var(--gold);}
 .r-trash .scard-avatar{border-color:var(--trash);filter:saturate(.5);}
 .r-special .scard-avatar{border-color:#ff88ff;}
-.srating{font-family:var(--font-mono);font-size:1.35rem;font-weight:900;}
+.srating{font-family:'Orbitron',monospace;font-size:1.35rem;font-weight:900;}
 .r-elite .srating{color:var(--elite);}
 .r-gold .srating{color:var(--gold);}
 .r-trash .srating{color:var(--trash);}
@@ -311,6 +309,8 @@ header{
     50%{box-shadow:0 0 30px rgba(255,100,255,.3);}
   }
 }
+@media(max-width:768px){
+  .coach-banner{box-shadow:none;}
 }
 .coach-badge{
   font-size:3.5rem;background:rgba(255,100,255,.1);
@@ -318,7 +318,7 @@ header{
   display:flex;align-items:center;justify-content:center;
   border:2px solid rgba(255,100,255,.4);flex-shrink:0;
 }
-.coach-info h2{font-family:var(--font-mono);font-size:1.1rem;color:#ff88ff;margin-bottom:.4rem;}
+.coach-info h2{font-family:'Orbitron',monospace;font-size:1.1rem;color:#ff88ff;margin-bottom:.4rem;}
 .coach-info .roles{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.5rem;}
 .role-tag{
   background:rgba(255,100,255,.12);border:1px solid rgba(255,100,255,.3);
@@ -350,32 +350,28 @@ header{
 .fco-card.r-trash{border:2px solid var(--trash);box-shadow:0 10px 40px rgba(0,0,0,.6);}
 .fco-card.r-special{border:2px solid #ff88ff;box-shadow:0 0 25px rgba(255,100,255,.3),0 10px 40px rgba(0,0,0,.6);}
 @media(max-width:600px){
-  .fco-card{width:min(90vw,330px);
-  .logo-ring img.fc-logo{inset:3px;width:calc(100% - 6px);height:calc(100% - 6px);
-  /* Header */
-  .hdr{padding:.65rem .8rem;gap:.4rem;flex-wrap:wrap;
-}
+  .fco-card{width:min(90vw,330px);}
   .fco-card.r-elite,.fco-card.r-gold,.fco-card.r-special{box-shadow:0 8px 20px rgba(0,0,0,.5);}
 }
 .card-hdr{padding:.9rem 1.2rem .4rem;display:flex;align-items:center;gap:.8rem;position:relative;}
-.card-rating{font-family:var(--font-mono);font-size:2.8rem;font-weight:900;line-height:1;}
+.card-rating{font-family:'Orbitron',monospace;font-size:2.8rem;font-weight:900;line-height:1;}
 .r-elite .card-rating{color:var(--elite);}
 .r-gold .card-rating{color:var(--gold);}
 .r-trash .card-rating{color:var(--trash);}
 .r-special .card-rating{color:#ff88ff;}
 .card-pos-info{display:flex;flex-direction:column;gap:.15rem;}
-.card-pos{font-family:var(--font-mono);font-size:.85rem;font-weight:700;letter-spacing:.1em;}
+.card-pos{font-family:'Orbitron',monospace;font-size:.85rem;font-weight:700;letter-spacing:.1em;}
 .r-elite .card-pos{color:var(--elite);}
 .r-gold .card-pos{color:var(--gold);}
 .r-trash .card-pos{color:var(--trash);}
 .r-special .card-pos{color:#ff88ff;}
 .card-shirt-num{
-  font-family:var(--font-mono);font-size:.65rem;color:var(--text-dim);
+  font-family:'Orbitron',monospace;font-size:.65rem;color:var(--text-dim);
   background:rgba(255,255,255,.08);border-radius:4px;padding:2px 5px;width:fit-content;
 }
 .card-season-lbl{
   font-size:.55rem;color:var(--elite);
-  font-family:var(--font-mono);letter-spacing:.06em;
+  font-family:'Orbitron',monospace;letter-spacing:.06em;
 }
 .card-rarity-lbl{
   position:absolute;top:.7rem;right:1rem;
@@ -407,7 +403,7 @@ header{
 .r-gold .stat-fill{background:linear-gradient(90deg,var(--gold2),var(--gold));}
 .r-trash .stat-fill{background:linear-gradient(90deg,#444,#777);}
 .r-special .stat-fill{background:linear-gradient(90deg,#cc44cc,#ff88ff);}
-.stat-val{font-family:var(--font-mono);font-size:.65rem;font-weight:700;width:20px;text-align:right;color:var(--text);}
+.stat-val{font-family:'Orbitron',monospace;font-size:.65rem;font-weight:700;width:20px;text-align:right;color:var(--text);}
 .card-close{
   position:absolute;top:.55rem;right:.55rem;
   background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);
@@ -424,7 +420,7 @@ header{
   background:var(--dark3);border-radius:10px;padding:.8rem 1.2rem;
   border:1px solid rgba(255,215,0,.15);
 }
-.season-header .sh-label{font-family:var(--font-mono);font-size:.75rem;color:var(--gold);letter-spacing:.15em;}
+.season-header .sh-label{font-family:'Orbitron',monospace;font-size:.75rem;color:var(--gold);letter-spacing:.15em;}
 .season-header .sh-val{font-size:.85rem;color:var(--text-dim);}
 .results-list{display:flex;flex-direction:column;gap:.7rem;}
 .result-item{
@@ -436,7 +432,7 @@ header{
 .result-item:hover{transform:translateX(5px);}
 .rdate{font-size:.72rem;color:var(--text-dim);min-width:78px;}
 .rteams{flex:1;font-weight:700;font-size:.9rem;min-width:120px;}
-.rscore{font-family:var(--font-mono);font-size:1.3rem;font-weight:900;min-width:72px;text-align:center;}
+.rscore{font-family:'Orbitron',monospace;font-size:1.3rem;font-weight:900;min-width:72px;text-align:center;}
 .rbadge{padding:.18rem .65rem;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;min-width:48px;text-align:center;}
 .b-win{background:rgba(0,230,118,.12);color:var(--win);border:1px solid rgba(0,230,118,.28);}
 .b-loss{background:rgba(255,23,68,.09);color:var(--loss);border:1px solid rgba(255,23,68,.2);}
@@ -453,7 +449,7 @@ header{
   cursor:pointer;transition:transform .2s,border-color .2s;
 }
 .shirt-card:hover{transform:translateY(-4px);border-color:rgba(255,215,0,.3);}
-.shirt-num{font-family:var(--font-mono);font-size:2.2rem;font-weight:900;color:var(--gold);}
+.shirt-num{font-family:'Orbitron',monospace;font-size:2.2rem;font-weight:900;color:var(--gold);}
 .shirt-real-name{font-size:.75rem;font-weight:700;margin-top:.1rem;}
 .shirt-alias{font-size:.7rem;color:var(--text-dim);font-style:italic;}
 .shirt-size{
@@ -471,7 +467,7 @@ header{
 
 /* ===== FUN ===== */
 .fun-sec{margin-bottom:2rem;}
-.fun-sec h2{font-family:var(--font-mono);font-size:1rem;color:var(--gold);margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px solid rgba(255,215,0,.18);display:flex;align-items:center;gap:.5rem;}
+.fun-sec h2{font-family:'Orbitron',monospace;font-size:1rem;color:var(--gold);margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px solid rgba(255,215,0,.18);display:flex;align-items:center;gap:.5rem;}
 .awards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.9rem;}
 .award-c{background:var(--dark3);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.9rem;text-align:center;transition:transform .2s;}
 .award-c:hover{transform:scale(1.04);}
@@ -575,6 +571,8 @@ header{
 .coach-badge:not(:has(img)){font-size:3.5rem;}
 
 /* --- RESPONSIVE MOBILE --- */
+@media(max-width:600px){
+  .logo-ring img.fc-logo{inset:3px;width:calc(100% - 6px);height:calc(100% - 6px);}
   .pavatar{width:58px;height:58px;}
   .scard-avatar{width:54px;height:54px;}
   .bench-avatar{width:50px;height:50px;}
@@ -606,10 +604,13 @@ header{
 .bench-token:hover{transform:scale(1.12);}
 .bench-avatar{width:60px;height:60px;border-radius:50%;overflow:hidden;border:2px dashed rgba(255,215,0,.35);background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:1.6rem;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.4);filter:brightness(.65) saturate(.5);}
 .bench-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-.bench-chip{position:absolute;top:-4px;right:-4px;background:#252530;color:var(--gold2);font-size:.48rem;font-weight:700;border-radius:3px;padding:1px 4px;border:1px solid rgba(255,165,0,.35);font-family:var(--font-mono);}
+.bench-chip{position:absolute;top:-4px;right:-4px;background:#252530;color:var(--gold2);font-size:.48rem;font-weight:700;border-radius:3px;padding:1px 4px;border:1px solid rgba(255,165,0,.35);font-family:'Orbitron',monospace;}
 .bench-name{font-size:.62rem;color:rgba(255,255,255,.42);text-align:center;max-width:62px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:rgba(0,0,0,.35);border-radius:3px;padding:1px 4px;}
 .bench-sub-txt{font-size:.54rem;color:rgba(255,165,0,.6);font-weight:700;letter-spacing:.04em;}
 
+@media(max-width:600px){
+  /* Header */
+  .hdr{padding:.65rem .8rem;gap:.4rem;flex-wrap:wrap;}
   .logo-ring{width:48px;height:48px;}
   .logo-ring::after{font-size:.7rem;}
   .brand h1{font-size:1.1rem;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -696,6 +697,23 @@ header{
 </head>
 <body>
 
+<div style="
+  position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;
+">
+  <div style="
+    position:absolute;
+    top:-50%;left:-50%;
+    width:200%;height:200%;
+    font-family:'Orbitron',monospace;font-size:.95rem;font-weight:700;
+    color:rgba(255,215,0,0.18);
+    letter-spacing:.3em;line-height:3.4em;
+    word-break:break-all;white-space:normal;
+    transform:rotate(-35deg);
+    transform-origin:center center;
+  ">FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ · FC A04 · SÂN 4 BIỂN · BIỂN LÀ NHÀ ·
+  </div>
+</div>
+
 <!-- HEADER -->
 <header>
   <div class="hdr">
@@ -711,7 +729,7 @@ header{
     </div>
     <div class="hdr-pills">
       <div class="pill"><b>10</b>Quân số</div>
-      <div class="pill"><b>2-3-1</b>Đội hình</div>
+      <div class="pill"><b>3-2-1</b>Đội hình</div>
       <div class="pill"><b>81</b>OVR TB</div>
       <div class="pill"><b>2025/26</b>Mùa giải</div>
     </div>
@@ -720,7 +738,7 @@ header{
 
 <!-- SEASON BANNER -->
 <div class="season-badge">
-  ⚽ MÙA GIẢI 2025 / 2026 <span>·</span> FC A04 <span>·</span> SÂN 4 BIỂN · SÂN 7 NGƯỜI <span>·</span> ĐỘI HÌNH 2–3–1 ⚽
+  ⚽ MÙA GIẢI 2025 / 2026 <span>·</span> FC A04 <span>·</span> SÂN 4 BIỂN · SÂN 7 NGƯỜI <span>·</span> ĐỘI HÌNH 3–2–1 ⚽
 </div>
 
 <!-- TABS -->
@@ -820,7 +838,7 @@ header{
         <div class="sh-label">⚽ MÙA GIẢI 2025 / 2026</div>
         <div class="sh-val">FC A04 · Lớp A04 K55 · THPT Dương Xá · Sân 7 người</div>
       </div>
-      <div style="font-family:var(--font-mono);font-size:1.1rem;color:var(--gold);" id="season-record"></div>
+      <div style="font-family:'Orbitron',monospace;font-size:1.1rem;color:var(--gold);" id="season-record"></div>
     </div>
     <div class="results-list" id="results-list"></div>
   </div>
@@ -874,6 +892,14 @@ header{
 
 <div class="toast" id="toast"></div>
 
+<div style="
+  position:fixed;bottom:.7rem;right:1rem;z-index:50;
+  font-size:.78rem;color:rgba(255,215,0,.45);
+  font-family:'Orbitron',monospace;letter-spacing:.12em;font-weight:700;
+  pointer-events:none;user-select:none;
+  text-shadow:0 0 8px rgba(255,215,0,.25);
+">© Bi Tiên Lốp Đế A04</div>
+
 <script>
 // ========== DỮ LIỆU THẬT – MÙA 2025/26 ==========
 const SEASON = '2025/26';
@@ -881,7 +907,7 @@ const SEASON = '2025/26';
 const players = [
   {
     id:1,name:"Lương Thế Hùng",short:"T.Hùng",alias:"LTH",cardPos:"center 8%",cardScale:0.7,shirt:7,
-    nickname:'"Diệu Linh Lạng Sơn"',size:"L",pos:"CB",rating:78,flag:"🇻🇳",
+    nickname:'"Diệu Linh Lạng Sơn"',size:"L",pos:"CM",rating:78,flag:"🇻🇳",
     avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/H%C3%B9ng.jpeg`,
     stats:{PAC:68,SHO:42,PAS:70,DRI:58,DEF:78,PHY:74}
   },
@@ -893,7 +919,7 @@ const players = [
   },
   {
     id:3,name:"Hoàng Lâm",short:"H.Lâm",alias:"Hoang Lam",shirt:8,
-    nickname:'"Đức Bê"',size:"L",pos:"CM",rating:82,flag:"🇻🇳",cardPos:"center 30%",avatarPos:"center 35%",
+    nickname:'"Đức Bê"',size:"L",pos:"CB",rating:82,flag:"🇻🇳",cardPos:"center 30%",avatarPos:"center 35%",
     avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/L%C3%A2m.jpg`,
     stats:{PAC:72,SHO:68,PAS:82,DRI:75,DEF:65,PHY:70}
   },
@@ -918,21 +944,21 @@ const players = [
     stats:{PAC:40,SHO:30,PAS:55,DRI:42,DEF:74,PHY:90}
   },
   {
-    id:7,name:"Dúnglala",short:"Dúnglala",alias:"Dúnglala",cardPos:"center center",cardScale:0.6,shirt:49,
+    id:7,name:"Dúnglala",short:"Dúnglala",alias:"Dúnglala",cardScale:0.6,shirt:49,
     nickname:'"Hải Hùng"',size:"XL",pos:"GK",rating:83,flag:"🇻🇳",cardPos:"center center",cardFit:"contain",avatarPos:"center center",
     avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/D%C3%BAng%20LaLa.jpg`,
     stats:{PAC:50,DIV:83,HND:80,KCK:68,REF:79,SPD:55}
   },
   {
     id:8,name:"Lqt Trung",short:"L.Trung",alias:"Lqt",cardPos:"center 40%",cardScale:0.55,shirt:36,
-    nickname:'"36 – Trung Sịp Cam"',size:"L",pos:"ST",rating:87,flag:"🇻🇳",
+    nickname:'"36 – Trung Sịp Cam"',size:"L",pos:"CB",rating:87,flag:"🇻🇳",
     avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Trung.png`,
     avatarCard:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Trung.png`,
     cardPos:"center center",
     stats:{PAC:82,SHO:87,PAS:68,DRI:83,DEF:32,PHY:76}
   },
   {
-    id:9,name:"UEIH Hiếu",short:"UEIH",alias:"UEIH",cardPos:"center 40%",cardScale:0.4,shirt:10,
+    id:9,name:"UEIH Hiếu",short:"UEIH",alias:"UEIH",cardScale:0.4,shirt:10,
     nickname:'"Số 10 – Hiếu Đầu Cọ"',size:"L",pos:"CM",rating:81,flag:"🇻🇳",cardPos:"55% 40%",cardFit:"65%",avatarPos:"55% 20%",
     avatar:`https://raw.githubusercontent.com/travis290910/FCA04/main/assets/Hi%E1%BA%BFu.png`,
     stats:{PAC:74,SHO:72,PAS:81,DRI:78,DEF:58,PHY:68}
@@ -954,9 +980,9 @@ const players = [
 // Dự bị: Khánh Sky, Lê Dương, Bi Nghiện
 const activeRows = [
   { label:"Tấn công",  ids:[2] },         // Long (ST)
-  { label:"Tiền vệ",  ids:[1,9] },       // LTH Hùng (cánh) + UEIH (CM)
-  { label:"Hậu vệ",   ids:[3,8,6] },    // Lâm (CB) + Lqt Trung (CB) + MaldiĐức (CB)
-  { label:"Hậu môn",  ids:[7] }          // Dúnglala (GK)
+  { label:"Tiền vệ",   ids:[1,9] },       // Hùng + UEIH Hiếu (CM)
+  { label:"Hậu vệ",    ids:[3,8,6] },     // Lâm + Lqt Trung + MaldiĐức (CB)
+  { label:"Hậu môn",   ids:[7] }          // Dúnglala (GK)
 ];
 
 // Dự bị: Khánh Sky (#20), Lê Dương (#17), Bi Nghiện – Nguyên (#29)
@@ -991,7 +1017,7 @@ const rules = [
   "Mùa 2025/26:Nguyên có mặt tại nhà Long trước 30 phút – Đợi Long tắm xog 2 ae mới lên sân",
   "Ai ghi bàn thì là ăn may – ai phản lưới là ngu,cả đội phản lưới thì do tâm lí",
   "XXXL và XXL được phép đứng yên kiểm soát không gian – đây là chiến thuật, không phải lười",
-  "Dúnglala giữ khung thành bất khả xâm phạm – không ai được nem bóng vào mặt hậu môn kể cả đùa",
+  "Dúnglala giữ khung thành bất khả xâm phạm – không ai được ném bóng vào mặt hậu môn kể cả đùa",
   "Mọi tranh cãi đều kết thúc bằng: 'Tại ông cái tôi cao' và sau đó là'Tại tự ái cao'",
   "Sau mỗi trận đá xong là kéo nhau ra ông Tuy – ai không đi bị coi là phản bội tập thể",
   "Phí phạt sô đa: ngã không bóng = 1 cốc · khóc = cả bàn · chê đồng đội trên mạng = khao cả đội + xin lỗi công khai"
